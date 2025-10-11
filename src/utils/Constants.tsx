@@ -83,3 +83,17 @@ export const workExperience = [
     ],
   },
 ];
+
+export const githubRepositories = [
+  {
+    owner: "knganesh97",
+    repo: "skillzcollab-assignment",
+    description: "Assignment project for SkillzCollab",
+  },
+  {
+    owner: "knganesh97",
+    repo: "portfolio-kng",
+    description: "Personal portfolio website",
+  },
+  // Add more repositories as needed
+];
