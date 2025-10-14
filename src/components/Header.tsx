@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Link from "@/components/ui/Link";
-import Image from "next/image";
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -33,17 +32,6 @@ const Header: React.FC = () => {
         }}
       >
         <Link href="/" className="flex items-center group" style={{ textDecoration: "none" }}>
-          <Image
-            src="/favicon.ico"
-            alt="SkillzCollab Logo"
-            width={44}
-            height={44}
-            className="rounded-full mr-4 shadow border-2"
-            style={{
-              borderColor: "var(--header-logo-border)",
-            }}
-            priority
-          />
           <span
             className="text-2xl font-bold tracking-wide font-sans"
             style={{
@@ -121,17 +109,6 @@ const Header: React.FC = () => {
         }}
       >
         <Link href="/" className="flex items-center group" style={{ textDecoration: "none" }}>
-          <Image
-            src="/favicon.ico"
-            alt="SkillzCollab Logo"
-            width={44}
-            height={44}
-            className="rounded-full mr-4 shadow border-2"
-            style={{
-              borderColor: "var(--header-logo-border)",
-            }}
-            priority
-          />
           <span
             className="text-2xl font-bold tracking-wide font-sans"
             style={{
