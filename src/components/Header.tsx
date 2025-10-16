@@ -23,19 +23,14 @@ const Header: React.FC = () => {
     return (
       <header
         className="
-          sticky top-0 z-50
-          backdrop-blur-md shadow-sm flex items-center justify-between px-10 py-3 transition-shadow border-b
+          sticky top-0 z-50 bg-header-bg border-b border-header-border
+          backdrop-blur-md shadow-sm flex items-center justify-between px-10 py-3 transition-shadow
         "
-        style={{
-          background: "var(--header-bg)",
-          borderColor: "var(--header-border)",
-        }}
-      >
-        <Link href="/" className="flex items-center group" style={{ textDecoration: "none" }}>
+        >
+        <Link href="/" className="flex items-center group no-underline">
           <span
-            className="text-2xl font-bold tracking-wide font-sans"
+            className="text-2xl font-bold tracking-wide font-sans text-header-title"
             style={{
-              color: "var(--header-title)",
               fontFamily: "var(--font-geist-sans), sans-serif",
             }}
           >
@@ -48,32 +43,14 @@ const Header: React.FC = () => {
             href="/projects"
             className="
               font-semibold text-base px-4 py-2 rounded-md transition-colors focus:outline-none
-              hidden sm:inline-block
+              hidden sm:inline-block text-header-link hover:bg-header-link-bg-hover hover:text-header-link-hover
             "
-            style={{
-              color: "var(--header-link)",
-            }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "var(--header-link-bg-hover)";
-              (e.target as HTMLElement).style.color = "var(--header-link-hover)";
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "transparent";
-              (e.target as HTMLElement).style.color = "var(--header-link)";
-            }}
           >
             My Projects
           </Link>
 
           <button
-            className="sm:hidden p-2 rounded-md transition-colors focus:outline-none"
-            style={{ color: "var(--header-link)" }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "var(--header-link-bg-hover)";
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "transparent";
-            }}
+            className="sm:hidden p-2 rounded-md transition-colors focus:outline-none text-header-link hover:bg-header-link-bg-hover"
             aria-label="Open menu"
           >
             <svg
@@ -100,19 +77,14 @@ const Header: React.FC = () => {
     <>
       <header
         className="
-          sticky top-0 z-50
-          backdrop-blur-md shadow-sm flex items-center justify-between px-10 py-3 transition-shadow border-b
+          sticky top-0 z-50 bg-header-bg border-b border-header-border
+          backdrop-blur-md shadow-sm flex items-center justify-between px-10 py-3 transition-shadow
         "
-        style={{
-          background: "var(--header-bg)",
-          borderColor: "var(--header-border)",
-        }}
       >
-        <Link href="/" className="flex items-center group" style={{ textDecoration: "none" }}>
+        <Link href="/" className="flex items-center group no-underline">
           <span
-            className="text-2xl font-bold tracking-wide font-sans"
+            className="text-2xl font-bold tracking-wide font-sans text-header-title"
             style={{
-              color: "var(--header-title)",
               fontFamily: "var(--font-geist-sans), sans-serif",
             }}
           >
@@ -125,33 +97,15 @@ const Header: React.FC = () => {
             href="/projects"
             className="
               font-semibold text-base px-4 py-2 rounded-md transition-colors focus:outline-none
-              hidden sm:inline-block
+              hidden sm:inline-block text-header-link hover:bg-header-link-bg-hover hover:text-header-link-hover
             "
-            style={{
-              color: "var(--header-link)",
-            }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "var(--header-link-bg-hover)";
-              (e.target as HTMLElement).style.color = "var(--header-link-hover)";
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "transparent";
-              (e.target as HTMLElement).style.color = "var(--header-link)";
-            }}
           >
             My Projects
           </Link>
 
           <button
             onClick={toggleSidebar}
-            className="sm:hidden p-2 rounded-md transition-colors focus:outline-none"
-            style={{ color: "var(--header-link)" }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "var(--header-link-bg-hover)";
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "transparent";
-            }}
+            className="sm:hidden p-2 rounded-md transition-colors focus:outline-none text-header-link hover:bg-header-link-bg-hover"
             aria-label="Open menu"
           >
             <svg
@@ -184,30 +138,17 @@ const Header: React.FC = () => {
       <div
         className={`
           fixed top-0 right-0 z-[70] h-full w-64 transform transition-transform duration-300 ease-in-out sm:hidden
+          bg-header-bg border-l border-header-border
           ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
-        style={{
-          background: "var(--header-bg)",
-          borderLeft: "1px solid var(--header-border)",
-        }}
       >
-        <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: "var(--header-border)" }}>
-          <h2 
-            className="text-lg font-semibold"
-            style={{ color: "var(--header-title)" }}
-          >
+        <div className="flex items-center justify-between p-4 border-b border-header-border">
+          <h2 className="text-lg font-semibold text-header-title">
             Menu
           </h2>
           <button
             onClick={closeSidebar}
-            className="p-2 rounded-md transition-colors"
-            style={{ color: "var(--header-link)" }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "var(--header-link-bg-hover)";
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "transparent";
-            }}
+            className="p-2 rounded-md transition-colors text-header-link hover:bg-header-link-bg-hover"
             aria-label="Close menu"
           >
             <svg
@@ -228,16 +169,7 @@ const Header: React.FC = () => {
         <nav className="p-4">
           <Link
             href="/projects"
-            className="block font-semibold text-base px-4 py-3 rounded-md transition-colors"
-            style={{ color: "var(--header-link)" }}
-            onMouseEnter={e => {
-              (e.target as HTMLElement).style.background = "var(--header-link-bg-hover)";
-              (e.target as HTMLElement).style.color = "var(--header-link-hover)";
-            }}
-            onMouseLeave={e => {
-              (e.target as HTMLElement).style.background = "transparent";
-              (e.target as HTMLElement).style.color = "var(--header-link)";
-            }}
+            className="block font-semibold text-base px-4 py-3 rounded-md transition-colors text-header-link hover:bg-header-link-bg-hover hover:text-header-link-hover"
             onClick={closeSidebar}
           >
             My Projects

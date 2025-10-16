@@ -1,17 +1,7 @@
 import React from "react";
 
 const Footer: React.FC = () => (
-  <footer
-    style={{
-      width: "100%",
-      padding: "1rem 0",
-      textAlign: "center",
-      background: "var(--footer-bg)",
-      color: "var(--footer-text)",
-      fontSize: "0.9rem",
-      borderTop: "1px solid var(--footer-border)",
-    }}
-  >
+  <footer className="w-full py-4 text-center bg-footer-bg text-footer-text text-sm border-t border-footer-border">
     © {new Date().getFullYear()} Ganesh Kantimahanthi. All rights reserved.
   </footer>
 );

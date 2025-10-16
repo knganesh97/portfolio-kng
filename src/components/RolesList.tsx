@@ -24,9 +24,9 @@ const RolesList: React.FC<RolesListProps> = ({
   className = "" 
 }) => {
   return (
-    <CardContainer className={className}>
+    <CardContainer className={`bg-card ${className}`}>
       <div className="space-y-6">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        <h2 className="text-3xl font-bold mb-8 text-foreground">
           {title}
         </h2>
         
