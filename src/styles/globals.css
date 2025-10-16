@@ -41,32 +41,32 @@
   --emerald-950: #12231f;
 
   /* Core theme variables - warm vintage palette */
-  --background: var(--orange-50);
+  --background: var(--orange-100);
   --foreground: #2a1810;
 
-  --card: var(--green-50);
+  --card: var(--green-100);
   --card-foreground: #2a1810;
 
-  --popover: var(--orange-50);
+  --popover: var(--orange-100);
   --popover-foreground: #2a1810;
 
   --primary: var(--orange-500);
   --primary-foreground: #ffffff;
 
-  --secondary: var(--green-400);
+  --secondary: var(--green-500);
   --secondary-foreground: #ffffff;
 
-  --muted: var(--green-100);
+  --muted: var(--green-200);
   --muted-foreground: var(--green-700);
 
-  --accent: var(--emerald-400);
+  --accent: var(--emerald-500);
   --accent-foreground: #ffffff;
 
   --destructive: var(--orange-700);
   --destructive-foreground: #ffffff;
 
-  --border: var(--green-200);
-  --input: var(--green-100);
+  --border: var(--green-100);
+  --input: var(--green-200);
   --ring: var(--orange-400);
 
   --radius: 0.5rem;
@@ -90,32 +90,32 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1a1410;
+    --background: var(--orange-950);
     --foreground: var(--orange-100);
 
-    --card: var(--green-950);
+    --card: var(--green-900);
     --card-foreground: var(--orange-100);
 
-    --popover: var(--orange-950);
+    --popover: var(--orange-900);
     --popover-foreground: var(--orange-100);
 
     --primary: var(--orange-400);
     --primary-foreground: var(--orange-950);
 
-    --secondary: var(--green-700);
+    --secondary: var(--green-600);
     --secondary-foreground: var(--orange-50);
 
-    --muted: var(--green-900);
+    --muted: var(--green-800);
     --muted-foreground: var(--green-300);
 
-    --accent: var(--emerald-600);
+    --accent: var(--emerald-500);
     --accent-foreground: var(--orange-50);
 
     --destructive: var(--orange-500);
     --destructive-foreground: var(--orange-950);
 
-    --border: var(--green-800);
-    --input: var(--green-900);
+    --border: var(--green-900);
+    --input: var(--green-800);
     --ring: var(--orange-300);
 
     /* Header dark mode - warm orange */
