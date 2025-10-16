@@ -1,138 +1,138 @@
 @import "tailwindcss";
 
 :root {
-  /* Orange shades */
-  --orange-50: #fff7ed;
-  --orange-100: #ffedd5;
-  --orange-200: #fed7aa;
-  --orange-300: #fdba74;
-  --orange-400: #fb923c;
-  --orange-500: #f97316;
-  --orange-600: #ea580c;
-  --orange-700: #c2410c;
-  --orange-800: #9a3412;
-  --orange-900: #7c2d12;
-  --orange-950: #431407;
+  /* Warm burnt orange shades - inspired by vintage showgirl aesthetic */
+  --orange-50: #fef9f3;
+  --orange-100: #fdeee0;
+  --orange-200: #fad9ba;
+  --orange-300: #f6bc85;
+  --orange-400: #f19654;
+  --orange-500: #e87636;
+  --orange-600: #d15a28;
+  --orange-700: #ad4623;
+  --orange-800: #8b3824;
+  --orange-900: #702f20;
+  --orange-950: #3d160e;
 
-  /* Green shades */
-  --green-50: #f0fdf4;
-  --green-100: #dcfce7;
-  --green-200: #bbf7d0;
-  --green-300: #86efac;
-  --green-400: #4ade80;
-  --green-500: #22c55e;
-  --green-600: #16a34a;
-  --green-700: #15803d;
-  --green-800: #166534;
-  --green-900: #14532d;
-  --green-950: #052e16;
+  /* Sage/olive green shades - muted and vintage */
+  --green-50: #f5f7f1;
+  --green-100: #e8ede0;
+  --green-200: #d2dcc2;
+  --green-300: #b2c399;
+  --green-400: #90a871;
+  --green-500: #748c55;
+  --green-600: #5a6f42;
+  --green-700: #475737;
+  --green-800: #3a462f;
+  --green-900: #323c29;
+  --green-950: #1a2116;
 
-  /* Emerald shades for variety */
-  --emerald-50: #ecfdf5;
-  --emerald-100: #d1fae5;
-  --emerald-200: #a7f3d0;
-  --emerald-300: #6ee7b7;
-  --emerald-400: #34d399;
-  --emerald-500: #10b981;
-  --emerald-600: #059669;
-  --emerald-700: #047857;
-  --emerald-800: #065f46;
-  --emerald-900: #064e3b;
-  --emerald-950: #022c22;
+  /* Warm teal/emerald shades for accents */
+  --emerald-50: #f0f8f5;
+  --emerald-100: #dbeee6;
+  --emerald-200: #b9ddd0;
+  --emerald-300: #8ec6b3;
+  --emerald-400: #63aa94;
+  --emerald-500: #498d78;
+  --emerald-600: #387161;
+  --emerald-700: #2f5b4f;
+  --emerald-800: #294941;
+  --emerald-900: #243d36;
+  --emerald-950: #12231f;
 
-  /* Core theme variables */
-  --background: var(--green-50);
-  --foreground: #000000;
+  /* Core theme variables - warm vintage palette */
+  --background: var(--orange-50);
+  --foreground: #2a1810;
 
-  --card: var(--green-100);
-  --card-foreground: #000000;
+  --card: var(--green-50);
+  --card-foreground: #2a1810;
 
-  --popover: var(--green-50);
-  --popover-foreground: #000000;
+  --popover: var(--orange-50);
+  --popover-foreground: #2a1810;
 
-  --primary: var(--orange-600);
+  --primary: var(--orange-500);
   --primary-foreground: #ffffff;
 
-  --secondary: var(--green-200);
-  --secondary-foreground: #000000;
+  --secondary: var(--green-400);
+  --secondary-foreground: #ffffff;
 
   --muted: var(--green-100);
-  --muted-foreground: var(--green-800);
+  --muted-foreground: var(--green-700);
 
-  --accent: var(--orange-100);
-  --accent-foreground: #000000;
+  --accent: var(--emerald-400);
+  --accent-foreground: #ffffff;
 
   --destructive: var(--orange-700);
   --destructive-foreground: #ffffff;
 
-  --border: var(--green-300);
-  --input: var(--green-200);
-  --ring: var(--orange-500);
+  --border: var(--green-200);
+  --input: var(--green-100);
+  --ring: var(--orange-400);
 
   --radius: 0.5rem;
 
-  /* Header-specific variables */
-  --header-bg: var(--green-600);
-  --header-border: var(--green-700);
+  /* Header-specific variables - warm orange tone */
+  --header-bg: var(--orange-600);
+  --header-border: var(--orange-700);
   --header-title: #ffffff;
-  --header-link: #ffffff;
+  --header-link: var(--orange-50);
   --header-link-hover: #ffffff;
-  --header-link-bg-hover: var(--green-700);
+  --header-link-bg-hover: var(--orange-700);
 
-  /* Footer-specific variables */
-  --footer-bg: var(--emerald-600);
-  --footer-text: #ffffff;
-  --footer-border: var(--emerald-700);
+  /* Footer-specific variables - sage green tone */
+  --footer-bg: var(--green-600);
+  --footer-text: var(--orange-50);
+  --footer-border: var(--green-700);
 
-  /* Shimmer effects with green/orange */
-  --shimmer-gradient: linear-gradient(90deg, var(--orange-500) 0%, var(--orange-300) 25%, var(--green-400) 50%, var(--orange-300) 75%, var(--orange-500) 100%);
+  /* Shimmer effects with balanced orange and green */
+  --shimmer-gradient: linear-gradient(90deg, var(--orange-400) 0%, var(--orange-200) 20%, var(--green-300) 40%, var(--emerald-400) 60%, var(--green-300) 80%, var(--orange-200) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--green-950);
-    --foreground: #ffffff;
+    --background: #1a1410;
+    --foreground: var(--orange-100);
 
-    --card: var(--green-900);
-    --card-foreground: #ffffff;
+    --card: var(--green-950);
+    --card-foreground: var(--orange-100);
 
-    --popover: var(--green-900);
-    --popover-foreground: #ffffff;
+    --popover: var(--orange-950);
+    --popover-foreground: var(--orange-100);
 
-    --primary: var(--orange-500);
-    --primary-foreground: #000000;
+    --primary: var(--orange-400);
+    --primary-foreground: var(--orange-950);
 
-    --secondary: var(--green-800);
-    --secondary-foreground: #ffffff;
+    --secondary: var(--green-700);
+    --secondary-foreground: var(--orange-50);
 
-    --muted: var(--green-800);
-    --muted-foreground: var(--green-200);
+    --muted: var(--green-900);
+    --muted-foreground: var(--green-300);
 
-    --accent: var(--orange-800);
-    --accent-foreground: #ffffff;
+    --accent: var(--emerald-600);
+    --accent-foreground: var(--orange-50);
 
-    --destructive: var(--orange-600);
-    --destructive-foreground: #000000;
+    --destructive: var(--orange-500);
+    --destructive-foreground: var(--orange-950);
 
-    --border: var(--green-700);
-    --input: var(--green-800);
-    --ring: var(--orange-400);
+    --border: var(--green-800);
+    --input: var(--green-900);
+    --ring: var(--orange-300);
 
-    /* Header dark mode */
-    --header-bg: var(--green-800);
-    --header-border: var(--green-900);
-    --header-title: #ffffff;
-    --header-link: #ffffff;
-    --header-link-hover: #ffffff;
-    --header-link-bg-hover: var(--green-900);
+    /* Header dark mode - warm orange */
+    --header-bg: var(--orange-900);
+    --header-border: var(--orange-950);
+    --header-title: var(--orange-100);
+    --header-link: var(--green-200);
+    --header-link-hover: var(--orange-50);
+    --header-link-bg-hover: var(--orange-800);
 
-    /* Footer dark mode */
-    --footer-bg: var(--emerald-800);
-    --footer-text: #ffffff;
-    --footer-border: var(--emerald-900);
+    /* Footer dark mode - sage green */
+    --footer-bg: var(--green-900);
+    --footer-text: var(--orange-100);
+    --footer-border: var(--green-950);
 
-    /* Dark shimmer */
-    --shimmer-gradient: linear-gradient(90deg, var(--orange-400) 0%, var(--orange-200) 25%, var(--green-300) 50%, var(--orange-200) 75%, var(--orange-400) 100%);
+    /* Dark shimmer with warm tones */
+    --shimmer-gradient: linear-gradient(90deg, var(--orange-500) 0%, var(--orange-300) 20%, var(--green-400) 40%, var(--emerald-500) 60%, var(--green-400) 80%, var(--orange-300) 100%);
   }
 }
 

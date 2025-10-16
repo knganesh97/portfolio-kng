@@ -22,19 +22,19 @@ const Role: React.FC<RoleProps> = ({
 }) => {
   const header = (
     <div className="flex flex-col gap-1">
-      <h3 className="text-xl font-semibold">{title}</h3>
-      <span className="text-lg font-medium">{companyName}</span>
-      <span className="text-sm">{startDate} - {endDate}</span>
+      <h3 className="text-xl font-semibold text-card-foreground">{title}</h3>
+      <span className="text-lg font-medium text-primary">{companyName}</span>
+      <span className="text-sm text-muted-foreground">{startDate} - {endDate}</span>
     </div>
   );
 
   const body = (
     <div className="space-y-4">
-      <p>{description}</p>
+      <p className="text-card-foreground">{description}</p>
       
       <div>
-        <h4 className="text-sm font-semibold mb-2">Key Contributions:</h4>
-        <ul className="list-disc list-inside space-y-1">
+        <h4 className="text-sm font-semibold mb-2 text-card-foreground">Key Contributions:</h4>
+        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
           {contributions.map((contribution, index) => (
             <li key={index}>{contribution}</li>
           ))}
@@ -45,12 +45,12 @@ const Role: React.FC<RoleProps> = ({
 
   const footer = (
     <div>
-      <h4 className="text-sm font-semibold mb-2">Technologies:</h4>
+      <h4 className="text-sm font-semibold mb-2 text-card-foreground">Technologies:</h4>
       <div className="flex flex-wrap gap-2">
         {techStack.map((tech, index) => (
           <span 
             key={index} 
-            className="px-3 py-1 text-xs font-medium rounded-full bg-primary text-primary-foreground"
+            className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
           >
             {tech}
           </span>

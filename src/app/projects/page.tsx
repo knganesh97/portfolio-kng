@@ -14,11 +14,11 @@ const ProjectsPage: React.FC = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-background">
       <CardContainer>
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">Projects</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <h1 className="text-4xl font-bold mb-4 text-foreground">Projects</h1>
+          <p className="text-lg text-muted-foreground">
             Explore my GitHub repositories and projects
           </p>
         </div>
@@ -29,12 +29,12 @@ const ProjectsPage: React.FC = () => {
               key={index}
               header={
                 <div className="flex items-center gap-2">
-                  <h2 className="text-xl font-semibold">{repository.repo}</h2>
+                  <h2 className="text-xl font-semibold text-card-foreground">{repository.repo}</h2>
                   <a
                     href={`https://github.com/${repository.owner}/${repository.repo}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-blue-500 transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     <svg
                       className="w-4 h-4"
@@ -58,10 +58,10 @@ const ProjectsPage: React.FC = () => {
               }
               body={
                 <div className="space-y-3">
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-muted-foreground">
                     {repository.description}
                   </p>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-muted-foreground">
                     <span className="font-medium">Owner:</span> {repository.owner}
                   </div>
                 </div>
