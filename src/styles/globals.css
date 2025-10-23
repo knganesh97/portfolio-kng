@@ -4,160 +4,175 @@
 
 @layer base {
   :root {
-    /* Warm burnt orange shades - inspired by vintage showgirl aesthetic */
-    --color-orange-50: #fef9f3;
-    --color-orange-100: #fdeee0;
-    --color-orange-200: #fad9ba;
-    --color-orange-300: #f6bc85;
-    --color-orange-400: #f19654;
-    --color-orange-500: #e87636;
-    --color-orange-600: #d15a28;
-    --color-orange-700: #ad4623;
-    --color-orange-800: #8b3824;
-    --color-orange-900: #702f20;
-    --color-orange-950: #3d160e;
+    /* Rust/Terracotta shades - from message bubbles */
+    --color-orange-50: #f7e8e4;
+    --color-orange-100: #edc9bf;
+    --color-orange-200: #e2a899;
+    --color-orange-300: #d68773;
+    --color-orange-400: #c76e56;
+    --color-orange-500: #b85a3e;
+    --color-orange-600: #a54d35;
+    --color-orange-700: #8f3f2b;
+    --color-orange-800: #793222;
+    --color-orange-900: #5c2418;
+    --color-orange-950: #2a1c18;
 
-    /* Sage/olive green shades - muted and vintage */
-    --color-green-50: #f5f7f1;
-    --color-green-100: #e8ede0;
-    --color-green-200: #d2dcc2;
-    --color-green-300: #b2c399;
-    --color-green-400: #90a871;
-    --color-green-500: #748c55;
-    --color-green-600: #5a6f42;
-    --color-green-700: #475737;
-    --color-green-800: #3a462f;
-    --color-green-900: #323c29;
-    --color-green-950: #1a2116;
+    /* Sage/Mint green shades - from backgrounds and message bubbles */
+    --color-green-50: #f1f7f0;
+    --color-green-100: #e3f0e1;
+    --color-green-200: #c5e2c1;
+    --color-green-300: #b3d6ae;
+    --color-green-400: #9dbf96;
+    --color-green-500: #a8c9a3;
+    --color-green-600: #7fa878;
+    --color-green-700: #638b5c;
+    --color-green-800: #4d6e48;
+    --color-green-900: #3a5437;
+    --color-green-950: #1f2b1e;
 
-    /* Warm teal/emerald shades for accents */
-    --color-emerald-50: #f0f8f5;
-    --color-emerald-100: #dbeee6;
-    --color-emerald-200: #b9ddd0;
-    --color-emerald-300: #8ec6b3;
-    --color-emerald-400: #63aa94;
-    --color-emerald-500: #498d78;
-    --color-emerald-600: #387161;
-    --color-emerald-700: #2f5b4f;
-    --color-emerald-800: #294941;
-    --color-emerald-900: #243d36;
-    --color-emerald-950: #12231f;
+    /* Blue/Purple accent shades - from action buttons */
+    --color-blue-50: #eef0fb;
+    --color-blue-100: #d9ddf5;
+    --color-blue-200: #b8c0ed;
+    --color-blue-300: #929ee3;
+    --color-blue-400: #7082db;
+    --color-blue-500: #5b6fd4;
+    --color-blue-600: #4c5db8;
+    --color-blue-700: #3e4a95;
+    --color-blue-800: #333d78;
+    --color-blue-900: #2c3564;
+    --color-blue-950: #1c213d;
 
-    /* Core theme variables - warm vintage palette */
-    --color-background: #fdeee0;
-    --color-foreground: #2a1810;
-    --color-card: #e8ede0;
-    --color-card-foreground: #2a1810;
-    --color-popover: #fdeee0;
-    --color-popover-foreground: #2a1810;
-    --color-primary: #e87636;
+    /* Core theme variables - Light Mode */
+    --color-background: #a8c9a3;
+    --color-foreground: #000000;
+    --color-card: #b85a3e;
+    --color-card-foreground: #ffffff;
+    --color-popover: #b85a3e;
+    --color-popover-foreground: #ffffff;
+    --color-primary: #b85a3e;
     --color-primary-foreground: #ffffff;
-    --color-secondary: #748c55;
-    --color-secondary-foreground: #ffffff;
-    --color-muted: #d2dcc2;
-    --color-muted-foreground: #475737;
-    --color-accent: #498d78;
+    --color-secondary: #9dbf96;
+    --color-secondary-foreground: #000000;
+    --color-muted: #cbd7c7;
+    --color-muted-foreground: #3a5437;
+    --color-accent: #5b6fd4;
     --color-accent-foreground: #ffffff;
-    --color-destructive: #ad4623;
+    --color-destructive: #b85a3e;
     --color-destructive-foreground: #ffffff;
-    --color-border: #e8ede0;
-    --color-input: #d2dcc2;
-    --color-ring: #f19654;
-    --radius: 0.5rem;
+    --color-border: #a8947f;
+    --color-input: #b3d6ae;
+    --color-ring: #5b6fd4;
+    --radius: 1.25rem;
 
-    /* Header-specific variables - warm orange tone */
-    --color-header-bg: #d15a28;
-    --color-header-border: #ad4623;
+    /* Header-specific variables - rust tone */
+    --color-header-bg: #b85a3e;
+    --color-header-border: #8f3f2b;
     --color-header-title: #ffffff;
-    --color-header-link: #fef9f3;
+    --color-header-link: #ffffff;
     --color-header-link-hover: #ffffff;
-    --color-header-link-bg-hover: #ad4623;
+    --color-header-link-bg-hover: #a54d35;
 
     /* Footer-specific variables - sage green tone */
-    --color-footer-bg: #5a6f42;
-    --color-footer-text: #fef9f3;
-    --color-footer-border: #475737;
+    --color-footer-bg: #9dbf96;
+    --color-footer-text: #000000;
+    --color-footer-border: #638b5c;
+
+    /* Card container - same as badges (green) */
+    --color-card-container-bg: #9dbf96;
+    --color-card-container-foreground: #000000;
+    --color-card-container-border: #88af82;
 
     /* Shimmer gradient */
-    --shimmer-gradient: linear-gradient(90deg, #f19654 0%, #fad9ba 20%, #b2c399 40%, #63aa94 60%, #b2c399 80%, #fad9ba 100%);
+    --shimmer-gradient: linear-gradient(90deg, #b85a3e 0%, #c5e2c1 20%, #9dbf96 40%, #5b6fd4 60%, #9dbf96 80%, #c5e2c1 100%);
   }
 
   .dark {
-    --color-background: #3d160e;
-    --color-foreground: #fdeee0;
-    --color-card: #323c29;
-    --color-card-foreground: #fdeee0;
-    --color-popover: #702f20;
-    --color-popover-foreground: #fdeee0;
-    --color-primary: #f19654;
-    --color-primary-foreground: #3d160e;
-    --color-secondary: #5a6f42;
-    --color-secondary-foreground: #fef9f3;
-    --color-muted: #3a462f;
-    --color-muted-foreground: #b2c399;
-    --color-accent: #498d78;
-    --color-accent-foreground: #fef9f3;
-    --color-destructive: #e87636;
-    --color-destructive-foreground: #3d160e;
-    --color-border: #323c29;
-    --color-input: #3a462f;
-    --color-ring: #fad9ba;
+    --color-background: #6b3326;
+    --color-foreground: #ffffff;
+    --color-card: #9dbf96;
+    --color-card-foreground: #000000;
+    --color-popover: #9dbf96;
+    --color-popover-foreground: #000000;
+    --color-primary: #9dbf96;
+    --color-primary-foreground: #000000;
+    --color-secondary: #2f2420;
+    --color-secondary-foreground: #ffffff;
+    --color-muted: #3a3d47;
+    --color-muted-foreground: #ffffff;
+    --color-accent: #5b6fd4;
+    --color-accent-foreground: #ffffff;
+    --color-destructive: #b85a3e;
+    --color-destructive-foreground: #ffffff;
+    --color-border: #8c6b5f;
+    --color-input: #3a2b26;
+    --color-ring: #5b6fd4;
 
-    /* Header dark mode - warm orange */
-    --color-header-bg: #702f20;
-    --color-header-border: #3d160e;
-    --color-header-title: #fdeee0;
-    --color-header-link: #d2dcc2;
-    --color-header-link-hover: #fef9f3;
-    --color-header-link-bg-hover: #8b3824;
+    /* Header dark mode - rust brown */
+    --color-header-bg: #6b3326;
+    --color-header-border: #4d3832;
+    --color-header-title: #ffffff;
+    --color-header-link: #ffffff;
+    --color-header-link-hover: #ffffff;
+    --color-header-link-bg-hover: #5c2418;
 
-    /* Footer dark mode - sage green */
-    --color-footer-bg: #323c29;
-    --color-footer-text: #fdeee0;
-    --color-footer-border: #1a2116;
+    /* Footer dark mode - dark brown/gray */
+    --color-footer-bg: #2f2420;
+    --color-footer-text: #ffffff;
+    --color-footer-border: #1f1816;
+
+    /* Card container - same as badges (dark brown/gray) */
+    --color-card-container-bg: #2f2420;
+    --color-card-container-foreground: #ffffff;
+    --color-card-container-border: #423530;
 
     /* Shimmer gradient dark mode */
-    --shimmer-gradient: linear-gradient(90deg, #e87636 0%, #fad9ba 20%, #90a871 40%, #498d78 60%, #90a871 80%, #fad9ba 100%);
+    --shimmer-gradient: linear-gradient(90deg, #9dbf96 0%, #c5e2c1 20%, #5b6fd4 40%, #b85a3e 60%, #5b6fd4 80%, #c5e2c1 100%);
   }
 
   /* Also respect user's system preference for dark mode */
   @media (prefers-color-scheme: dark) {
     :root {
-      --color-background: #3d160e;
-      --color-foreground: #fdeee0;
-      --color-card: #323c29;
-      --color-card-foreground: #fdeee0;
-      --color-popover: #702f20;
-      --color-popover-foreground: #fdeee0;
-      --color-primary: #f19654;
-      --color-primary-foreground: #3d160e;
-      --color-secondary: #5a6f42;
-      --color-secondary-foreground: #fef9f3;
-      --color-muted: #3a462f;
-      --color-muted-foreground: #b2c399;
-      --color-accent: #498d78;
-      --color-accent-foreground: #fef9f3;
-      --color-destructive: #e87636;
-      --color-destructive-foreground: #3d160e;
-      --color-border: #323c29;
-      --color-input: #3a462f;
-      --color-ring: #fad9ba;
+      --color-background: #6b3326;
+      --color-foreground: #ffffff;
+      --color-card: #9dbf96;
+      --color-card-foreground: #000000;
+      --color-popover: #9dbf96;
+      --color-popover-foreground: #000000;
+      --color-primary: #9dbf96;
+      --color-primary-foreground: #000000;
+      --color-secondary: #2f2420;
+      --color-secondary-foreground: #ffffff;
+      --color-muted: #3a3d47;
+      --color-muted-foreground: #ffffff;
+      --color-accent: #5b6fd4;
+      --color-accent-foreground: #ffffff;
+      --color-destructive: #b85a3e;
+      --color-destructive-foreground: #ffffff;
+      --color-border: #8c6b5f;
+      --color-input: #3a2b26;
+      --color-ring: #5b6fd4;
 
-      /* Header dark mode - warm orange */
-      --color-header-bg: #702f20;
-      --color-header-border: #3d160e;
-      --color-header-title: #fdeee0;
-      --color-header-link: #d2dcc2;
-      --color-header-link-hover: #fef9f3;
-      --color-header-link-bg-hover: #8b3824;
+      /* Header dark mode - rust brown */
+      --color-header-bg: #6b3326;
+      --color-header-border: #4d3832;
+      --color-header-title: #ffffff;
+      --color-header-link: #ffffff;
+      --color-header-link-hover: #ffffff;
+      --color-header-link-bg-hover: #5c2418;
 
-      /* Footer dark mode - sage green */
-      --color-footer-bg: #323c29;
-      --color-footer-text: #fdeee0;
-      --color-footer-border: #1a2116;
+      /* Footer dark mode - dark brown/gray */
+      --color-footer-bg: #2f2420;
+      --color-footer-text: #ffffff;
+      --color-footer-border: #1f1816;
+
+      /* Card container - same as badges (dark brown/gray) */
+      --color-card-container-bg: #2f2420;
+      --color-card-container-foreground: #ffffff;
+      --color-card-container-border: #423530;
 
       /* Shimmer gradient dark mode */
-      --shimmer-gradient: linear-gradient(90deg, #e87636 0%, #fad9ba 20%, #90a871 40%, #498d78 60%, #90a871 80%, #fad9ba 100%);
+      --shimmer-gradient: linear-gradient(90deg, #9dbf96 0%, #c5e2c1 20%, #5b6fd4 40%, #b85a3e 60%, #5b6fd4 80%, #c5e2c1 100%);
     }
   }
 
@@ -170,4 +185,80 @@
     color: var(--color-foreground);
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  /* Prose styling to inherit from card container */
+  .prose {
+    color: var(--color-card-container-foreground);
+  }
+  
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    color: var(--color-card-container-foreground);
+  }
+  
+  .prose a {
+    color: var(--color-accent);
+  }
+  
+  .prose code {
+    color: var(--color-card-container-foreground);
+  }
+  
+  .prose strong {
+    color: var(--color-card-container-foreground);
+  }
+
+  /* Card borders - light and subtle */
+  .card-border {
+    border-color: rgba(168, 148, 127, 0.2);
+  }
+
+  .card-inner-border {
+    border-color: rgba(168, 148, 127, 0.15);
+  }
+
+  .dark .card-border {
+    border-color: rgba(140, 107, 95, 0.2);
+  }
+
+  .dark .card-inner-border {
+    border-color: rgba(140, 107, 95, 0.15);
+  }
+
+  /* Header styles */
+  .header-bg {
+    background-color: var(--color-header-bg);
+    border-color: var(--color-header-border);
+  }
+
+  .header-title {
+    color: var(--color-header-title);
+  }
+
+  .header-link {
+    color: var(--color-header-link);
+  }
+
+  /* Footer styles */
+  .footer-bg {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    border-color: var(--color-footer-border);
+  }
+
+  /* Card container styles */
+  .card-container-bg {
+    background-color: var(--color-card-container-bg);
+    color: var(--color-card-container-foreground);
+    border-color: var(--color-card-container-border);
+  }
+
+  .card-container-fg {
+    color: var(--color-card-container-foreground);
+  }
 }
+

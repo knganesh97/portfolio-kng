@@ -17,8 +17,8 @@ const ProjectsPage: React.FC = () => {
     <div className="p-6 bg-background">
       <CardContainer>
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-foreground">Projects</h1>
-          <p className="text-lg text-muted-foreground">
+          <h1 className="text-4xl font-bold mb-4 card-container-fg">Projects</h1>
+          <p className="text-lg card-container-fg opacity-80">
             Explore my GitHub repositories and projects
           </p>
         </div>
@@ -34,7 +34,7 @@ const ProjectsPage: React.FC = () => {
                     href={`https://github.com/${repository.owner}/${repository.repo}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-accent hover:text-accent/80 transition-colors"
                   >
                     <svg
                       className="w-4 h-4"
@@ -58,10 +58,10 @@ const ProjectsPage: React.FC = () => {
               }
               body={
                 <div className="space-y-3">
-                  <p className="text-muted-foreground">
+                  <p className="text-card-foreground opacity-90">
                     {repository.description}
                   </p>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-card-foreground opacity-80">
                     <span className="font-medium">Owner:</span> {repository.owner}
                   </div>
                 </div>

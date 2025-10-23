@@ -23,8 +23,8 @@ const Role: React.FC<RoleProps> = ({
   const header = (
     <div className="flex flex-col gap-1">
       <h3 className="text-xl font-semibold text-card-foreground">{title}</h3>
-      <span className="text-lg font-medium text-primary">{companyName}</span>
-      <span className="text-sm text-muted-foreground">{startDate} - {endDate}</span>
+      <span className="text-lg font-medium text-card-foreground opacity-90">{companyName}</span>
+      <span className="text-sm text-card-foreground opacity-75">{startDate} - {endDate}</span>
     </div>
   );
 
@@ -34,7 +34,7 @@ const Role: React.FC<RoleProps> = ({
       
       <div>
         <h4 className="text-sm font-semibold mb-2 text-card-foreground">Key Contributions:</h4>
-        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+        <ul className="list-disc list-inside space-y-1 text-card-foreground opacity-90">
           {contributions.map((contribution, index) => (
             <li key={index}>{contribution}</li>
           ))}

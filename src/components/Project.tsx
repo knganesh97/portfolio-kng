@@ -66,12 +66,12 @@ const Project: React.FC<ProjectProps> = ({ owner, repo, className }) => {
     <CardContainer className={className}>
       <div className="space-y-4">
         <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-2xl font-bold text-foreground">{repo}</h2>
+          <h2 className="text-2xl font-bold card-container-fg">{repo}</h2>
           <a
             href={`https://github.com/${owner}/${repo}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:text-primary/80 transition-colors"
+            className="text-accent hover:text-accent/80 transition-colors"
           >
             <svg
               className="w-5 h-5"
@@ -90,7 +90,7 @@ const Project: React.FC<ProjectProps> = ({ owner, repo, className }) => {
 
         {loading && (
           <div className="flex justify-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent"></div>
           </div>
         )}
 
