@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
             px-6 py-2.5 rounded-full font-medium transition-all duration-200
             cursor-pointer
             disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none
-            focus:outline-none focus:ring-offset-2
+            focus:ring-offset-2
             ${variantClasses[variant]}
             ${className}
         `}

@@ -55,13 +55,14 @@ const SubmissionModal: React.FC<SubmissionModalProps> = ({ open, onClose, onSubm
                 {/* Clear Data Button */}
                 <Button
                     type="button"
-                    className="absolute top-3 left-3 text-muted-foreground hover:text-destructive rounded-full p-1 transition-colors"
+                    className="absolute top-3 left-3 flex items-center gap-1 text-muted-foreground hover:text-destructive rounded-full p-1 transition-colors"
                     onClick={handleClear}
                     aria-label="Clear Data"
                     variant="ghost"
                 >
                     {/* Trash Icon (Heroicons outline) */}
                     <Trash2 className="w-5 h-5" />
+                    <span className="text-xs font-medium">Clear</span>
                 </Button>
                 <Button
                     type="button"

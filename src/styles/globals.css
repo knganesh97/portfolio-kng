@@ -85,7 +85,7 @@
     --color-card-container-border: #88af82;
 
     /* Shimmer gradient */
-    --shimmer-gradient: linear-gradient(90deg, #b85a3e 0%, #c5e2c1 20%, #9dbf96 40%, #5b6fd4 60%, #9dbf96 80%, #c5e2c1 100%);
+    --shimmer-gradient: linear-gradient(90deg, var(--color-orange-500) 0%, var(--color-green-200) 20%, var(--color-green-400) 40%, var(--color-blue-500) 60%, var(--color-green-400) 80%, var(--color-green-200) 100%);
   }
 
   .dark {
