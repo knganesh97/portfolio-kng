@@ -2,7 +2,7 @@
 
 ## 🎨 Overview
 
-Your portfolio uses a **centralized theme system** inspired by "The Life of a Showgirl" aesthetic with warm burnt oranges and sage/olive greens. All colors are controlled through CSS variables, making theme changes simple and consistent.
+Your portfolio uses a **centralized theme system** with a **"Rustic Nature"** aesthetic featuring warm rust/terracotta oranges, sage greens, and blue accents. All colors are controlled through CSS variables with the `--color-` prefix, making theme changes simple and consistent.
 
 ## 📁 Theme Configuration Files
 
@@ -23,44 +23,58 @@ Edit `src/styles/globals.css` to change the entire theme. Here's the structure:
 ```css
 :root {
   /* Color Palettes */
-  --orange-50 to --orange-950
-  --green-50 to --green-950
-  --emerald-50 to --emerald-950
+  --color-orange-50 to --color-orange-950   /* Rust/Terracotta tones */
+  --color-green-50 to --color-green-950     /* Sage/Mint green tones */
+  --color-blue-50 to --color-blue-950       /* Blue/Purple accent tones */
   
   /* Semantic Variables (Light Mode) */
-  --background: var(--orange-50);      /* Page background */
-  --foreground: #2a1810;               /* Main text color */
-  --card: var(--green-50);             /* Card backgrounds */
-  --card-foreground: #2a1810;          /* Card text */
-  --primary: var(--orange-500);        /* Primary actions/buttons */
-  --primary-foreground: #ffffff;       /* Primary button text */
-  --secondary: var(--green-400);       /* Secondary elements */
-  --secondary-foreground: #ffffff;     /* Secondary text */
-  --muted: var(--green-100);          /* Muted backgrounds */
-  --muted-foreground: var(--green-700); /* Muted text */
-  --accent: var(--emerald-400);        /* Accent elements */
-  --accent-foreground: #ffffff;        /* Accent text */
-  --border: var(--green-200);          /* Border color */
-  --input: var(--green-100);           /* Input backgrounds */
-  --ring: var(--orange-400);           /* Focus rings */
+  --color-background: #a8c9a3;              /* Page background (sage green) */
+  --color-foreground: #000000;              /* Main text color */
+  --color-card: #b85a3e;                    /* Card backgrounds (rust) */
+  --color-card-foreground: #ffffff;         /* Card text */
+  --color-primary: #b85a3e;                 /* Primary actions/buttons (rust) */
+  --color-primary-foreground: #ffffff;      /* Primary button text */
+  --color-secondary: #9dbf96;               /* Secondary elements (sage) */
+  --color-secondary-foreground: #000000;    /* Secondary text */
+  --color-muted: #cbd7c7;                   /* Muted backgrounds */
+  --color-muted-foreground: #3a5437;        /* Muted text */
+  --color-accent: #5b6fd4;                  /* Accent elements (blue) */
+  --color-accent-foreground: #ffffff;       /* Accent text */
+  --color-border: #a8947f;                  /* Border color */
+  --color-input: #b3d6ae;                   /* Input backgrounds */
+  --color-ring: #5b6fd4;                    /* Focus rings (blue) */
   
   /* Component-Specific */
-  --header-bg: var(--orange-600);
-  --header-border: var(--orange-700);
-  --header-title: #ffffff;
-  --header-link: var(--orange-50);
-  --header-link-hover: #ffffff;
-  --header-link-bg-hover: var(--orange-700);
+  --color-header-bg: #b85a3e;               /* Header background (rust) */
+  --color-header-border: #8f3f2b;           /* Header border */
+  --color-header-title: #ffffff;            /* Header title text */
+  --color-header-link: #ffffff;             /* Header link color */
+  --color-header-link-hover: #ffffff;       /* Header link hover */
+  --color-header-link-bg-hover: #a54d35;    /* Header link hover background */
   
-  --footer-bg: var(--green-600);
-  --footer-text: var(--orange-50);
-  --footer-border: var(--green-700);
+  --color-footer-bg: #9dbf96;               /* Footer background (sage) */
+  --color-footer-text: #000000;             /* Footer text */
+  --color-footer-border: #638b5c;           /* Footer border */
+  
+  --color-card-container-bg: #9dbf96;       /* Card container background */
+  --color-card-container-foreground: #000000; /* Card container text */
+  --color-card-container-border: #88af82;   /* Card container border */
+  
+  /* Shimmer Effect */
+  --shimmer-gradient: linear-gradient(90deg, #b85a3e 0%, #c5e2c1 20%, #9dbf96 40%, #5b6fd4 60%, #9dbf96 80%, #c5e2c1 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark mode overrides */
-  }
+.dark {
+  /* Dark mode overrides */
+  --color-background: #6b3326;              /* Dark rust background */
+  --color-foreground: #ffffff;              /* White text */
+  --color-card: #9dbf96;                    /* Sage green cards */
+  --color-card-foreground: #000000;         /* Dark text on cards */
+  --color-primary: #9dbf96;                 /* Sage green primary */
+  --color-secondary: #2f2420;               /* Dark brown secondary */
+  --color-header-bg: #6b3326;               /* Dark rust header */
+  --color-footer-bg: #2f2420;               /* Dark brown footer */
+  --color-card-container-bg: #2f2420;       /* Dark container background */
 }
 ```
 
@@ -71,16 +85,16 @@ To add a completely new color scheme:
 1. **Update Color Variables** in `globals.css`:
    ```css
    :root {
-     --blue-500: #3b82f6;
-     --purple-500: #a855f7;
+     --color-blue-500: #3b82f6;
+     --color-purple-500: #a855f7;
      /* ... add your colors ... */
    }
    ```
 
 2. **Update Semantic Variables**:
    ```css
-   --primary: var(--blue-500);
-   --secondary: var(--purple-500);
+   --color-primary: var(--color-blue-500);
+   --color-secondary: var(--color-purple-500);
    ```
 
 3. **Optional**: Add to `tailwind.config.ts` for utility classes:
@@ -137,41 +151,47 @@ All components now use **semantic CSS variables** instead of hardcoded colors:
 - `ring-ring` - Focus rings
 
 ### Specialized
-- `bg-header-bg` - Header background
-- `text-header-link` - Header link color
-- `bg-footer-bg` - Footer background
+- `header-bg` - Header background
+- `header-title` - Header title color
+- `header-link` - Header link color
+- `header-link-bg-hover` - Header link hover background
+- `footer-bg` - Footer background
+- `footer-text` - Footer text color
+- `card-container-bg` - Card container background
+- `card-container-foreground` - Card container text
 - `text-destructive` - Error/delete actions
 
 ---
 
 ## 🌓 Dark Mode
 
-Dark mode is automatically handled by the `@media (prefers-color-scheme: dark)` section in `globals.css`. All semantic variables are redefined for dark mode.
+Dark mode is automatically handled by both the `.dark` class and the `@media (prefers-color-scheme: dark)` sections in `globals.css`. All semantic variables are redefined for dark mode, with the background switching to a dark rust color (#6b3326) and cards becoming sage green for contrast.
 
 To test dark mode:
 - macOS: System Preferences → General → Appearance → Dark
 - Windows: Settings → Personalization → Colors → Dark
+- Or manually add the `dark` class to the `<html>` element
 
 ---
 
-## 🎭 Current Color Scheme: "Life of a Showgirl"
+## 🎭 Current Color Scheme: "Rustic Nature"
 
 ### Palette Breakdown
 
-**🍊 Warm Burnt Oranges** (Primary)
-- Light: `#fef9f3` to `#f19654`
-- Mid: `#e87636` to `#ad4623`
-- Dark: `#8b3824` to `#3d160e`
+**🍊 Rust/Terracotta Oranges** (Primary)
+- Light: `#f7e8e4` to `#c76e56`
+- Mid: `#b85a3e` to `#8f3f2b`
+- Dark: `#793222` to `#2a1c18`
 
-**🌿 Sage/Olive Greens** (Secondary)
-- Light: `#f5f7f1` to `#90a871`
-- Mid: `#748c55` to `#475737`
-- Dark: `#3a462f` to `#1a2116`
+**🌿 Sage/Mint Greens** (Secondary)
+- Light: `#f1f7f0` to `#9dbf96`
+- Mid: `#a8c9a3` to `#638b5c`
+- Dark: `#4d6e48` to `#1f2b1e`
 
-**💎 Warm Teal/Emerald** (Accents)
-- Light: `#f0f8f5` to `#63aa94`
-- Mid: `#498d78` to `#2f5b4f`
-- Dark: `#294941` to `#12231f`
+**� Blue/Purple Accents** (Accent)
+- Light: `#eef0fb` to `#7082db`
+- Mid: `#5b6fd4` to `#3e4a95`
+- Dark: `#333d78` to `#1c213d`
 
 ---
 
@@ -183,21 +203,21 @@ Want to switch to a blue and pink theme?
 ```css
 :root {
   /* Replace orange variables */
-  --primary-color-50: #eff6ff;
-  --primary-color-500: #3b82f6;
-  --primary-color-700: #1d4ed8;
+  --color-primary-50: #eff6ff;
+  --color-primary-500: #3b82f6;
+  --color-primary-700: #1d4ed8;
   
   /* Replace green variables */
-  --secondary-color-50: #fdf2f8;
-  --secondary-color-500: #ec4899;
-  --secondary-color-700: #be185d;
+  --color-secondary-50: #fdf2f8;
+  --color-secondary-500: #ec4899;
+  --color-secondary-700: #be185d;
   
   /* Update semantic variables */
-  --background: var(--primary-color-50);
-  --primary: var(--primary-color-500);
-  --secondary: var(--secondary-color-500);
-  --header-bg: var(--primary-color-700);
-  --footer-bg: var(--secondary-color-700);
+  --color-background: var(--color-primary-50);
+  --color-primary: var(--color-primary-500);
+  --color-secondary: var(--color-secondary-500);
+  --color-header-bg: var(--color-primary-700);
+  --color-footer-bg: var(--color-secondary-700);
 }
 ```
 
@@ -209,8 +229,8 @@ Want to switch to a blue and pink theme?
 ## 📋 Checklist for Custom Themes
 
 - [ ] Update base color palettes (50-950 shades)
-- [ ] Update semantic variables (--background, --primary, etc.)
-- [ ] Update component-specific variables (--header-bg, --footer-bg)
+- [ ] Update semantic variables (--color-background, --color-primary, etc.)
+- [ ] Update component-specific variables (--color-header-bg, --color-footer-bg)
 - [ ] Update dark mode section
 - [ ] Test all pages: Home, Projects, Project Detail
 - [ ] Verify buttons, cards, and modals
@@ -238,7 +258,7 @@ If hardcoded, replace with appropriate theme variable.
 
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [CSS Variables Guide](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
-- Current theme inspired by: Taylor Swift's "The Life of a Showgirl"
+- Current theme inspired by: Rustic Nature aesthetic with warm earth tones
 
 ---
 
