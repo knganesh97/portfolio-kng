@@ -67,6 +67,7 @@
 
     /* Header-specific variables - rust tone */
     --color-header-bg: #b85a3e;
+    --color-header-bg-rgb: 184, 90, 62; /* RGB values for rgba() */
     --color-header-border: #8f3f2b;
     --color-header-title: #ffffff;
     --color-header-link: #ffffff;
@@ -110,6 +111,7 @@
 
     /* Header dark mode - rust brown */
     --color-header-bg: #6b3326;
+    --color-header-bg-rgb: 107, 51, 38; /* RGB values for rgba() */
     --color-header-border: #4d3832;
     --color-header-title: #ffffff;
     --color-header-link: #ffffff;
@@ -155,6 +157,7 @@
 
       /* Header dark mode - rust brown */
       --color-header-bg: #6b3326;
+      --color-header-bg-rgb: 107, 51, 38; /* RGB values for rgba() */
       --color-header-border: #4d3832;
       --color-header-title: #ffffff;
       --color-header-link: #ffffff;
