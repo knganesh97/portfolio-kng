@@ -132,7 +132,7 @@ export const markdownComponents: Components = {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline transition-colors"
+      className="text-primary hover:text-primary/80 underline transition-colors"
     >
       {children}
     </a>

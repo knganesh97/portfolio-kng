@@ -1,80 +1,267 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  --card-background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 60%, #fff 100%);
-  --card-foreground: #171717;
-
-  /* Header-specific variables */
-  --header-bg: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 60%, #fff 100%);
-  --header-bg-dark: rgba(23,23,32,0.92);
-  --header-border: #e5e7eb;
-  --header-border-dark: #23263a;
-  --header-title: #222;
-  --header-title-dark: #e0e7ef;
-  --header-link: #2563eb;
-  --header-link-dark: #60a5fa;
-  --header-link-hover: #1d4ed8;
-  --header-link-hover-dark: #93c5fd;
-  --header-link-bg-hover: #eaf2ff;
-  --header-link-bg-hover-dark: #1e293b;
-  --header-logo-border: #dbeafe;
-  --header-logo-border-dark: #334155;
-  --header-logo-gradient: linear-gradient(135deg, #4f8cff 60%, #7fbcff 100%);
-  --header-logo-gradient-dark: linear-gradient(135deg, #2563eb 60%, #60a5fa 100%);
-
-  /* Footer-specific variables */
-  --footer-bg: #f5f5f5;
-  --footer-bg-dark: #23263a;
-  --footer-text: #555;
-  --footer-text-dark: #e0e7ef;
-  --footer-border: #e5e7eb;
-  --footer-border-dark: #23263a;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Rust/Terracotta shades - from message bubbles */
+    --color-orange-50: #f7e8e4;
+    --color-orange-100: #edc9bf;
+    --color-orange-200: #e2a899;
+    --color-orange-300: #d68773;
+    --color-orange-400: #c76e56;
+    --color-orange-500: #b85a3e;
+    --color-orange-600: #a54d35;
+    --color-orange-700: #8f3f2b;
+    --color-orange-800: #793222;
+    --color-orange-900: #5c2418;
+    --color-orange-950: #2a1c18;
 
-    --card-background: #181622;
-    --card-foreground: #ededed;
+    /* Sage/Mint green shades - from backgrounds and message bubbles */
+    --color-green-50: #f1f7f0;
+    --color-green-100: #e3f0e1;
+    --color-green-200: #c5e2c1;
+    --color-green-300: #b3d6ae;
+    --color-green-400: #9dbf96;
+    --color-green-500: #a8c9a3;
+    --color-green-600: #7fa878;
+    --color-green-700: #638b5c;
+    --color-green-800: #4d6e48;
+    --color-green-900: #3a5437;
+    --color-green-950: #1f2b1e;
 
-    /* Override header variables for dark mode */
-    --header-bg: var(--header-bg-dark);
-    --header-border: var(--header-border-dark);
-    --header-title: var(--header-title-dark);
-    --header-link: var(--header-link-dark);
-    --header-link-hover: var(--header-link-hover-dark);
-    --header-link-bg-hover: var(--header-link-bg-hover-dark);
-    --header-logo-border: var(--header-logo-border-dark);
-    --header-logo-gradient: var(--header-logo-gradient-dark);
+    /* Blue/Purple accent shades - from action buttons */
+    --color-blue-50: #eef0fb;
+    --color-blue-100: #d9ddf5;
+    --color-blue-200: #b8c0ed;
+    --color-blue-300: #929ee3;
+    --color-blue-400: #7082db;
+    --color-blue-500: #5b6fd4;
+    --color-blue-600: #4c5db8;
+    --color-blue-700: #3e4a95;
+    --color-blue-800: #333d78;
+    --color-blue-900: #2c3564;
+    --color-blue-950: #1c213d;
 
-    /* Override footer variables for dark mode */
-    --footer-bg: var(--footer-bg-dark);
-    --footer-text: var(--footer-text-dark);
-    --footer-border: var(--footer-border-dark);
+    /* Core theme variables - Light Mode */
+    --color-background: #a8c9a3;
+    --color-foreground: #000000;
+    --color-card: #b85a3e;
+    --color-card-foreground: #ffffff;
+    --color-popover: #b85a3e;
+    --color-popover-foreground: #ffffff;
+    --color-primary: #b85a3e;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #9dbf96;
+    --color-secondary-foreground: #000000;
+    --color-muted: #cbd7c7;
+    --color-muted-foreground: #3a5437;
+    --color-accent: #5b6fd4;
+    --color-accent-foreground: #ffffff;
+    --color-destructive: #b85a3e;
+    --color-destructive-foreground: #ffffff;
+    --color-border: #a8947f;
+    --color-input: #b3d6ae;
+    --color-ring: #5b6fd4;
+    --radius: 1.25rem;
+
+    /* Header-specific variables - rust tone */
+    --color-header-bg: #b85a3e;
+    --color-header-bg-rgb: 184, 90, 62; /* RGB values for rgba() */
+    --color-header-border: #8f3f2b;
+    --color-header-title: #ffffff;
+    --color-header-link: #ffffff;
+    --color-header-link-hover: #ffffff;
+    --color-header-link-bg-hover: #a54d35;
+
+    /* Footer-specific variables - sage green tone */
+    --color-footer-bg: #9dbf96;
+    --color-footer-text: #000000;
+    --color-footer-border: #638b5c;
+
+    /* Card container - same as badges (green) */
+    --color-card-container-bg: #9dbf96;
+    --color-card-container-foreground: #000000;
+    --color-card-container-border: #88af82;
+
+    /* Shimmer gradient */
+    --shimmer-gradient: linear-gradient(90deg, var(--color-orange-500) 0%, var(--color-green-200) 20%, var(--color-green-400) 40%, var(--color-blue-500) 60%, var(--color-green-400) 80%, var(--color-green-200) 100%);
   }
-}
 
-body {
-  background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 60%, #fff 100%);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
-}
+  .dark {
+    --color-background: #6b3326;
+    --color-foreground: #ffffff;
+    --color-card: #9dbf96;
+    --color-card-foreground: #000000;
+    --color-popover: #9dbf96;
+    --color-popover-foreground: #000000;
+    --color-primary: #9dbf96;
+    --color-primary-foreground: #000000;
+    --color-secondary: #2f2420;
+    --color-secondary-foreground: #ffffff;
+    --color-muted: #3a3d47;
+    --color-muted-foreground: #ffffff;
+    --color-accent: #5b6fd4;
+    --color-accent-foreground: #ffffff;
+    --color-destructive: #b85a3e;
+    --color-destructive-foreground: #ffffff;
+    --color-border: #8c6b5f;
+    --color-input: #3a2b26;
+    --color-ring: #5b6fd4;
 
-@media (prefers-color-scheme: dark) {
+    /* Header dark mode - rust brown */
+    --color-header-bg: #6b3326;
+    --color-header-bg-rgb: 107, 51, 38; /* RGB values for rgba() */
+    --color-header-border: #4d3832;
+    --color-header-title: #ffffff;
+    --color-header-link: #ffffff;
+    --color-header-link-hover: #ffffff;
+    --color-header-link-bg-hover: #5c2418;
+
+    /* Footer dark mode - dark brown/gray */
+    --color-footer-bg: #2f2420;
+    --color-footer-text: #ffffff;
+    --color-footer-border: #1f1816;
+
+    /* Card container - same as badges (dark brown/gray) */
+    --color-card-container-bg: #2f2420;
+    --color-card-container-foreground: #ffffff;
+    --color-card-container-border: #423530;
+
+    /* Shimmer gradient dark mode */
+    --shimmer-gradient: linear-gradient(90deg, #9dbf96 0%, #c5e2c1 20%, #5b6fd4 40%, #b85a3e 60%, #5b6fd4 80%, #c5e2c1 100%);
+  }
+
+  /* Also respect user's system preference for dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: #6b3326;
+      --color-foreground: #ffffff;
+      --color-card: #9dbf96;
+      --color-card-foreground: #000000;
+      --color-popover: #9dbf96;
+      --color-popover-foreground: #000000;
+      --color-primary: #9dbf96;
+      --color-primary-foreground: #000000;
+      --color-secondary: #2f2420;
+      --color-secondary-foreground: #ffffff;
+      --color-muted: #3a3d47;
+      --color-muted-foreground: #ffffff;
+      --color-accent: #5b6fd4;
+      --color-accent-foreground: #ffffff;
+      --color-destructive: #b85a3e;
+      --color-destructive-foreground: #ffffff;
+      --color-border: #8c6b5f;
+      --color-input: #3a2b26;
+      --color-ring: #5b6fd4;
+
+      /* Header dark mode - rust brown */
+      --color-header-bg: #6b3326;
+      --color-header-bg-rgb: 107, 51, 38; /* RGB values for rgba() */
+      --color-header-border: #4d3832;
+      --color-header-title: #ffffff;
+      --color-header-link: #ffffff;
+      --color-header-link-hover: #ffffff;
+      --color-header-link-bg-hover: #5c2418;
+
+      /* Footer dark mode - dark brown/gray */
+      --color-footer-bg: #2f2420;
+      --color-footer-text: #ffffff;
+      --color-footer-border: #1f1816;
+
+      /* Card container - same as badges (dark brown/gray) */
+      --color-card-container-bg: #2f2420;
+      --color-card-container-foreground: #ffffff;
+      --color-card-container-border: #423530;
+
+      /* Shimmer gradient dark mode */
+      --shimmer-gradient: linear-gradient(90deg, #9dbf96 0%, #c5e2c1 20%, #5b6fd4 40%, #b85a3e 60%, #5b6fd4 80%, #c5e2c1 100%);
+    }
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
   body {
-    background: #181622;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Prose styling to inherit from card container */
+  .prose {
+    color: var(--color-card-container-foreground);
+  }
+  
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    color: var(--color-card-container-foreground);
+  }
+  
+  .prose a {
+    color: var(--color-accent);
+  }
+  
+  .prose code {
+    color: var(--color-card-container-foreground);
+  }
+  
+  .prose strong {
+    color: var(--color-card-container-foreground);
+  }
+
+  /* Card borders - light and subtle */
+  .card-border {
+    border-color: rgba(168, 148, 127, 0.2);
+  }
+
+  .card-inner-border {
+    border-color: rgba(168, 148, 127, 0.15);
+  }
+
+  .dark .card-border {
+    border-color: rgba(140, 107, 95, 0.2);
+  }
+
+  .dark .card-inner-border {
+    border-color: rgba(140, 107, 95, 0.15);
+  }
+
+  /* Header styles */
+  .header-bg {
+    background-color: var(--color-header-bg);
+    border-color: var(--color-header-border);
+  }
+
+  .header-title {
+    color: var(--color-header-title);
+  }
+
+  .header-link {
+    color: var(--color-header-link);
+  }
+
+  /* Footer styles */
+  .footer-bg {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    border-color: var(--color-footer-border);
+  }
+
+  /* Card container styles */
+  .card-container-bg {
+    background-color: var(--color-card-container-bg);
+    color: var(--color-card-container-foreground);
+    border-color: var(--color-card-container-border);
+  }
+
+  .card-container-fg {
+    color: var(--color-card-container-foreground);
   }
 }
+

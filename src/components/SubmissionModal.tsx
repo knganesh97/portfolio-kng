@@ -50,45 +50,46 @@ const SubmissionModal: React.FC<SubmissionModalProps> = ({ open, onClose, onSubm
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 dark:bg-black/80 backdrop-blur-sm">
-            <div className="relative w-full max-w-lg rounded-2xl bg-white dark:bg-[#23263a] shadow-2xl border border-gray-200 dark:border-gray-700 p-8 animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+            <div className="relative w-full max-w-lg rounded-2xl bg-popover shadow-2xl border border-border p-8 animate-fadeIn">
                 {/* Clear Data Button */}
                 <Button
                     type="button"
-                    className="absolute top-3 left-3 text-gray-400 hover:text-red-600 dark:text-gray-500 dark:hover:text-red-400 rounded-full p-1 transition-colors"
+                    className="absolute top-3 left-3 flex items-center gap-1 text-muted-foreground hover:text-destructive rounded-full p-1 transition-colors"
                     onClick={handleClear}
                     aria-label="Clear Data"
                     variant="ghost"
                 >
                     {/* Trash Icon (Heroicons outline) */}
                     <Trash2 className="w-5 h-5" />
+                    <span className="text-xs font-medium">Clear</span>
                 </Button>
                 <Button
                     type="button"
-                    className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 rounded-full p-1 transition-colors"
+                    className="absolute top-3 right-3 text-muted-foreground hover:text-foreground rounded-full p-1 transition-colors"
                     onClick={onClose}
                     aria-label="Close"
                     variant="ghost"
                 >
                     <span className="text-2xl leading-none">&times;</span>
                 </Button>
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-6 text-center">Submit Your Entry</h2>
+                <h2 className="text-2xl font-semibold text-popover-foreground mb-6 text-center">Submit Your Entry</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200">Upload File</label>
+                        <label className="block mb-2 text-sm font-medium text-popover-foreground">Upload File</label>
                         <div className="flex items-center gap-3">
                             <input
                                 ref={fileInputRef}
                                 type="file"
                                 accept="image/*,video/*,.pdf,.doc,.docx"
                                 onChange={handleFileChange}
-                                className="block w-full text-sm text-gray-700 dark:text-gray-200 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900 dark:file:text-blue-200 hover:file:bg-blue-100 dark:hover:file:bg-blue-800 transition"
+                                className="block w-full text-sm text-foreground file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-accent file:text-accent-foreground hover:file:bg-accent/80 transition"
                             />
                         </div>
                         {previewUrl && (
                             <div className="mt-3">
                                 {file?.type.startsWith("image/") && (
-                                    <div className="relative w-40 h-40 border rounded-lg overflow-hidden">
+                                    <div className="relative w-40 h-40 border border-border rounded-lg overflow-hidden">
                                         <Image
                                             src={previewUrl}
                                             alt="Preview"
@@ -99,18 +100,18 @@ const SubmissionModal: React.FC<SubmissionModalProps> = ({ open, onClose, onSubm
                                     </div>
                                 )}
                                 {file?.type.startsWith("video/") && (
-                                    <video src={previewUrl} controls className="max-h-40 rounded-lg border" />
+                                    <video src={previewUrl} controls className="max-h-40 rounded-lg border border-border" />
                                 )}
                             </div>
                         )}
                     </div>
                     <div>
-                        <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200">Short Description</label>
+                        <label className="block mb-2 text-sm font-medium text-popover-foreground">Short Description</label>
                         <textarea
                             value={description}
                             onChange={e => setDescription(e.target.value)}
                             rows={4}
-                            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-gray-800 dark:text-gray-100 dark:bg-[#181622] focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-700 transition"
+                            className="w-full border border-input rounded-lg px-3 py-2 text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-ring transition"
                             placeholder="Describe the job..."
                             required
                         />

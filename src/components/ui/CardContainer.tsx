@@ -6,13 +6,7 @@ type CardContainerProps = {
 };
 
 const CardContainer: React.FC<CardContainerProps> = ({ children, className = "" }) => (
-  <div
-    className={`rounded-2xl shadow-xl p-8 md:p-12 transition-colors ${className}`}
-    style={{
-      background: "var(--card-background)",
-      color: "var(--card-foreground)",
-    }}
-  >
+  <div className={`rounded-3xl shadow-2xl p-8 md:p-12 transition-colors border card-container-bg ${className}`}>
     {children}
   </div>
 );

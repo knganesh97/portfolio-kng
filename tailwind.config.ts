@@ -1,59 +1,88 @@
-import type { Config } from "tailwindcss"
-import tailwindcssAnimate from "tailwindcss-animate"
-import typography from "@tailwindcss/typography"
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './public/**/*.html',
   ],
-  prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "var(--color-border)",
+        input: "var(--color-input)",
+        ring: "var(--color-ring)",
+        background: "var(--color-background)",
+        foreground: "var(--color-foreground)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--color-primary)",
+          foreground: "var(--color-primary-foreground)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--color-secondary)",
+          foreground: "var(--color-secondary-foreground)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "var(--color-destructive)",
+          foreground: "var(--color-destructive-foreground)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--color-muted)",
+          foreground: "var(--color-muted-foreground)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "var(--color-accent)",
+          foreground: "var(--color-accent-foreground)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--color-popover)",
+          foreground: "var(--color-popover-foreground)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--color-card)",
+          foreground: "var(--color-card-foreground)",
+        },
+        // Your custom color palettes
+        orange: {
+          50: "var(--color-orange-50)",
+          100: "var(--color-orange-100)",
+          200: "var(--color-orange-200)",
+          300: "var(--color-orange-300)",
+          400: "var(--color-orange-400)",
+          500: "var(--color-orange-500)",
+          600: "var(--color-orange-600)",
+          700: "var(--color-orange-700)",
+          800: "var(--color-orange-800)",
+          900: "var(--color-orange-900)",
+          950: "var(--color-orange-950)",
+        },
+        green: {
+          50: "var(--color-green-50)",
+          100: "var(--color-green-100)",
+          200: "var(--color-green-200)",
+          300: "var(--color-green-300)",
+          400: "var(--color-green-400)",
+          500: "var(--color-green-500)",
+          600: "var(--color-green-600)",
+          700: "var(--color-green-700)",
+          800: "var(--color-green-800)",
+          900: "var(--color-green-900)",
+          950: "var(--color-green-950)",
+        },
+        blue: {
+          50: "var(--color-blue-50)",
+          100: "var(--color-blue-100)",
+          200: "var(--color-blue-200)",
+          300: "var(--color-blue-300)",
+          400: "var(--color-blue-400)",
+          500: "var(--color-blue-500)",
+          600: "var(--color-blue-600)",
+          700: "var(--color-blue-700)",
+          800: "var(--color-blue-800)",
+          900: "var(--color-blue-900)",
+          950: "var(--color-blue-950)",
         },
       },
       borderRadius: {
@@ -61,62 +90,12 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: 'none',
-            color: 'hsl(var(--foreground))',
-            h1: {
-              color: 'hsl(var(--foreground))',
-            },
-            h2: {
-              color: 'hsl(var(--foreground))',
-            },
-            h3: {
-              color: 'hsl(var(--foreground))',
-            },
-            h4: {
-              color: 'hsl(var(--foreground))',
-            },
-            p: {
-              color: 'hsl(var(--muted-foreground))',
-            },
-            a: {
-              color: 'hsl(214 100% 59%)',
-              '&:hover': {
-                color: 'hsl(214 100% 49%)',
-              },
-            },
-            code: {
-              color: 'hsl(var(--foreground))',
-              backgroundColor: 'hsl(var(--muted))',
-            },
-            pre: {
-              backgroundColor: 'hsl(var(--muted))',
-            },
-            blockquote: {
-              borderLeftColor: 'hsl(var(--border))',
-            },
-          },
-        },
+      backgroundImage: {
+        'shimmer': 'var(--shimmer-gradient)',
       },
     },
   },
-  plugins: [tailwindcssAnimate, typography],
+  plugins: [],
 }
 
 export default config

@@ -1,19 +1,14 @@
+'use client'
 import React from "react";
 
-const Footer: React.FC = () => (
-  <footer
-    style={{
-      width: "100%",
-      padding: "1rem 0",
-      textAlign: "center",
-      background: "var(--footer-bg)",
-      color: "var(--footer-text)",
-      fontSize: "0.9rem",
-      borderTop: "1px solid var(--footer-border)",
-    }}
-  >
-    © {new Date().getFullYear()} Ganesh Kantimahanthi. All rights reserved.
-  </footer>
-);
+const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+  
+  return (
+    <footer className="w-full py-5 text-center text-sm border-t-2 shadow-lg footer-bg">
+      © {currentYear} Ganesh Kantimahanthi. All rights reserved.
+    </footer>
+  );
+};
 
 export default Footer;
