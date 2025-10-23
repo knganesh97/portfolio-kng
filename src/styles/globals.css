@@ -120,6 +120,47 @@
     --shimmer-gradient: linear-gradient(90deg, #e87636 0%, #fad9ba 20%, #90a871 40%, #498d78 60%, #90a871 80%, #fad9ba 100%);
   }
 
+  /* Also respect user's system preference for dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: #3d160e;
+      --color-foreground: #fdeee0;
+      --color-card: #323c29;
+      --color-card-foreground: #fdeee0;
+      --color-popover: #702f20;
+      --color-popover-foreground: #fdeee0;
+      --color-primary: #f19654;
+      --color-primary-foreground: #3d160e;
+      --color-secondary: #5a6f42;
+      --color-secondary-foreground: #fef9f3;
+      --color-muted: #3a462f;
+      --color-muted-foreground: #b2c399;
+      --color-accent: #498d78;
+      --color-accent-foreground: #fef9f3;
+      --color-destructive: #e87636;
+      --color-destructive-foreground: #3d160e;
+      --color-border: #323c29;
+      --color-input: #3a462f;
+      --color-ring: #fad9ba;
+
+      /* Header dark mode - warm orange */
+      --color-header-bg: #702f20;
+      --color-header-border: #3d160e;
+      --color-header-title: #fdeee0;
+      --color-header-link: #d2dcc2;
+      --color-header-link-hover: #fef9f3;
+      --color-header-link-bg-hover: #8b3824;
+
+      /* Footer dark mode - sage green */
+      --color-footer-bg: #323c29;
+      --color-footer-text: #fdeee0;
+      --color-footer-border: #1a2116;
+
+      /* Shimmer gradient dark mode */
+      --shimmer-gradient: linear-gradient(90deg, #e87636 0%, #fad9ba 20%, #90a871 40%, #498d78 60%, #90a871 80%, #fad9ba 100%);
+    }
+  }
+
   * {
     border-color: var(--color-border);
   }
