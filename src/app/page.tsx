@@ -1,4 +1,5 @@
 import RolesList from "@/components/RolesList";
+import Projects from "@/components/Projects";
 import { workExperience } from "@/utils/Constants";
 
 export default function Home() {
@@ -13,6 +14,8 @@ export default function Home() {
         </p>
       </div>
 
+      <Projects />
+      
       <RolesList roles={workExperience} />
     </div>
   );

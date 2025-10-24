@@ -49,13 +49,6 @@ const Header: React.FC = () => {
         </Link>
 
         <nav className="flex items-center gap-6">
-          <Link
-            href="/projects"
-            className="font-semibold text-base px-4 py-2 rounded-full transition-all duration-200 focus:outline-none hidden sm:inline-block header-link"
-          >
-            My Projects
-          </Link>
-
           <button
             onClick={toggleSidebar}
             className="sm:hidden p-2 rounded-full transition-all duration-200 focus:outline-none header-link"
@@ -116,13 +109,7 @@ const Header: React.FC = () => {
           </button>
         </div>
         <nav className="p-4">
-          <Link
-            href="/projects"
-            className="block font-semibold text-base px-4 py-3 rounded-full transition-all duration-200 header-link"
-            onClick={closeSidebar}
-          >
-            My Projects
-          </Link>
+          {/* Mobile navigation can be expanded here if needed */}
         </nav>
       </div>
     </>
