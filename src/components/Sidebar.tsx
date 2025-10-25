@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { navigationItems, HEADER_HEIGHT, SCROLL_DETECTION_OFFSET } from '@/utils/Constants';
+import { NAVIGATION_ITEMS, SCROLL_DETECTION_OFFSET } from '@/utils/Constants';
+import { scrollToSection } from '@/utils/scrollUtils';
 
 interface SidebarProps {
   className?: string;
@@ -13,9 +14,10 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
     height: '48px'
   });
 
+  const sections = React.useMemo(() => NAVIGATION_ITEMS.map(item => item.id), []);
+
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navigationItems.map(item => item.id);
       const scrollPosition = window.scrollY + SCROLL_DETECTION_OFFSET; // Offset for better detection
 
       for (const section of sections) {
@@ -35,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sections]);
 
   // Update indicator position based on active section
   useEffect(() => {
@@ -60,19 +62,6 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
     }
   }, [activeSection]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const elementPosition = element.offsetTop - HEADER_HEIGHT;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-
-
   return (
     <div className={`fixed right-6 top-1/2 transform -translate-y-1/2 z-40 ${className}`}>
       <nav className="relative bg-card/90 backdrop-blur-md border-2 border-border rounded-2xl p-4 shadow-lg">
@@ -85,7 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
         </div>
 
         <div className="relative flex flex-col space-y-3 pl-2">
-          {navigationItems.map((item) => (
+          {NAVIGATION_ITEMS.map((item) => (
             <button
               key={item.id}
               data-section={item.id}

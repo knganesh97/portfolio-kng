@@ -1,8 +1,9 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Link from "@/components/ui/Link";
-import { navigationItems, HEADER_HEIGHT } from "@/utils/Constants";
+import { NAVIGATION_ITEMS } from "@/utils/Constants";
 import { usePathname } from "next/navigation";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -26,18 +27,6 @@ const Header: React.FC = () => {
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const elementPosition = element.offsetTop - HEADER_HEIGHT;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-    closeSidebar(); // Close mobile sidebar after navigation
   };
 
   return (
@@ -127,10 +116,10 @@ const Header: React.FC = () => {
         <nav className="p-4">
           {isHomepage ? (
             <div className="space-y-2">
-              {navigationItems.map((item) => (
+              {NAVIGATION_ITEMS.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => scrollToSection(item.id, closeSidebar)}
                   className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-primary/10 text-left group"
                 >
                   <span className="text-lg" role="img" aria-hidden="true">
