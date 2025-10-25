@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { navigationItems } from '@/utils/Constants';
+import { navigationItems, HEADER_HEIGHT, SCROLL_DETECTION_OFFSET } from '@/utils/Constants';
 
 interface SidebarProps {
   className?: string;
@@ -16,7 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = navigationItems.map(item => item.id);
-      const scrollPosition = window.scrollY + 100; // Offset for better detection
+      const scrollPosition = window.scrollY + SCROLL_DETECTION_OFFSET; // Offset for better detection
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -44,9 +44,12 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
       if (buttonElement) {
         const navElement = buttonElement.closest('nav');
         if (navElement) {
+          // Get nav padding dynamically instead of hardcoding 16
+          const navStyles = window.getComputedStyle(navElement);
+          const navPaddingTop = parseInt(navStyles.paddingTop, 10) || 0;
           const navRect = navElement.getBoundingClientRect();
           const buttonRect = buttonElement.getBoundingClientRect();
-          const relativeTop = buttonRect.top - navRect.top - 16; // Subtract nav padding (p-4 = 16px)
+          const relativeTop = buttonRect.top - navRect.top - navPaddingTop;
           
           setIndicatorStyle({
             transform: `translateY(${relativeTop}px)`,
@@ -60,8 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 80; // Approximate header height
-      const elementPosition = element.offsetTop - headerHeight;
+      const elementPosition = element.offsetTop - HEADER_HEIGHT;
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'

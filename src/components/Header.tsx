@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Link from "@/components/ui/Link";
-import { navigationItems } from "@/utils/Constants";
+import { navigationItems, HEADER_HEIGHT } from "@/utils/Constants";
 import { usePathname } from "next/navigation";
 
 const Header: React.FC = () => {
@@ -31,8 +31,7 @@ const Header: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 80; // Approximate header height
-      const elementPosition = element.offsetTop - headerHeight;
+      const elementPosition = element.offsetTop - HEADER_HEIGHT;
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'

@@ -1,5 +1,9 @@
 import { Components } from 'react-markdown';
 
+// Layout Constants
+export const HEADER_HEIGHT = 80; // Height of the fixed header in pixels
+export const SCROLL_DETECTION_OFFSET = 100; // Offset for scroll position detection to account for fixed header
+
 export const navigationItems = [
   { id: 'projects', label: 'Projects', icon: '🚀' },
   { id: 'experience', label: 'Experience', icon: '💼' },
