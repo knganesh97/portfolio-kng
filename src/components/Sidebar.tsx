@@ -7,10 +7,14 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
   const [activeSection, setActiveSection] = useState<string>('');
+  const [indicatorStyle, setIndicatorStyle] = useState<{ transform: string; height: string }>({
+    transform: 'translateY(0px)',
+    height: '48px'
+  });
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['projects', 'experience'];
+      const sections = ['projects', 'experience', 'skills', 'education', 'achievements', 'links'];
       const scrollPosition = window.scrollY + 100; // Offset for better detection
 
       for (const section of sections) {
@@ -32,6 +36,26 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Update indicator position based on active section
+  useEffect(() => {
+    if (activeSection) {
+      const buttonElement = document.querySelector(`[data-section="${activeSection}"]`);
+      if (buttonElement) {
+        const navElement = buttonElement.closest('nav');
+        if (navElement) {
+          const navRect = navElement.getBoundingClientRect();
+          const buttonRect = buttonElement.getBoundingClientRect();
+          const relativeTop = buttonRect.top - navRect.top - 16; // Subtract nav padding (p-4 = 16px)
+          
+          setIndicatorStyle({
+            transform: `translateY(${relativeTop}px)`,
+            height: `${buttonRect.height}px`
+          });
+        }
+      }
+    }
+  }, [activeSection]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -46,7 +70,11 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
 
   const navigationItems = [
     { id: 'projects', label: 'Projects', icon: '🚀' },
-    { id: 'experience', label: 'Experience', icon: '💼' }
+    { id: 'experience', label: 'Experience', icon: '💼' },
+    { id: 'skills', label: 'Skills', icon: '⚡' },
+    { id: 'education', label: 'Education', icon: '🎓' },
+    { id: 'achievements', label: 'Achievements', icon: '🏆' },
+    { id: 'links', label: 'Links', icon: '🔗' }
   ];
 
   return (
@@ -55,12 +83,8 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
         {/* Navigation indicator line - positioned behind the buttons */}
         <div className="absolute left-2 top-4 bottom-4 w-1 bg-border/30 rounded-full">
           <div 
-            className={`
-              w-full h-12 bg-primary rounded-full transition-all duration-500 ease-out absolute
-            `}
-            style={{
-              transform: activeSection === 'experience' ? 'translateY(60px)' : 'translateY(12px)'
-            }}
+            className="w-full bg-primary rounded-full transition-all duration-500 ease-out absolute"
+            style={indicatorStyle}
           />
         </div>
 
@@ -68,6 +92,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
           {navigationItems.map((item) => (
             <button
               key={item.id}
+              data-section={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`
                 group flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300

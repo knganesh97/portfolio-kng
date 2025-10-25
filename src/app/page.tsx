@@ -6,7 +6,7 @@ import { workExperience } from "@/utils/Constants";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background p-6 relative">
-      <div className="max-w-6xl mx-auto lg:pr-64"> {/* Add right padding for sidebar space */}
+      <div className="max-w-6xl mx-auto lg:pr-52"> {/* Add right padding for sidebar space */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4 text-foreground">
             Ganesh Kantimahanthi
