@@ -1,10 +1,15 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Link from "@/components/ui/Link";
+import { NAVIGATION_ITEMS } from "@/utils/Constants";
+import { usePathname } from "next/navigation";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomepage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,13 +54,6 @@ const Header: React.FC = () => {
         </Link>
 
         <nav className="flex items-center gap-6">
-          <Link
-            href="/projects"
-            className="font-semibold text-base px-4 py-2 rounded-full transition-all duration-200 focus:outline-none hidden sm:inline-block header-link"
-          >
-            My Projects
-          </Link>
-
           <button
             onClick={toggleSidebar}
             className="sm:hidden p-2 rounded-full transition-all duration-200 focus:outline-none header-link"
@@ -116,13 +114,28 @@ const Header: React.FC = () => {
           </button>
         </div>
         <nav className="p-4">
-          <Link
-            href="/projects"
-            className="block font-semibold text-base px-4 py-3 rounded-full transition-all duration-200 header-link"
-            onClick={closeSidebar}
-          >
-            My Projects
-          </Link>
+          {isHomepage ? (
+            <div className="space-y-2">
+              {NAVIGATION_ITEMS.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id, closeSidebar)}
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-primary/10 text-left group"
+                >
+                  <span className="text-lg" role="img" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <span className="font-medium text-sm">
+                    {item.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="text-sm text-muted-foreground text-center py-8">
+              Navigation available on homepage
+            </div>
+          )}
         </nav>
       </div>
     </>

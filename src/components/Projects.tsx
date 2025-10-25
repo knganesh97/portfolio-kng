@@ -6,7 +6,7 @@ import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 
-const ProjectsPage: React.FC = () => {
+const Projects: React.FC = () => {
   const router = useRouter();
 
   const handleViewRepo = (repoName: string) => {
@@ -14,10 +14,10 @@ const ProjectsPage: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-background">
+    <div className="mb-12">
       <CardContainer>
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4 card-container-fg">Projects</h1>
+          <h2 className="text-4xl font-bold mb-4 card-container-fg">Projects</h2>
           <p className="text-lg card-container-fg opacity-80">
             Explore my GitHub repositories and projects
           </p>
@@ -29,7 +29,7 @@ const ProjectsPage: React.FC = () => {
               key={index}
               header={
                 <div className="flex items-center gap-2">
-                  <h2 className="text-xl font-semibold text-card-foreground">{repository.repo}</h2>
+                  <h3 className="text-xl font-semibold text-card-foreground">{repository.repo}</h3>
                   <a
                     href={`https://github.com/${repository.owner}/${repository.repo}`}
                     target="_blank"
@@ -84,4 +84,4 @@ const ProjectsPage: React.FC = () => {
   );
 };
 
-export default ProjectsPage;
+export default Projects;
