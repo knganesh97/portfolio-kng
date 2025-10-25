@@ -1,5 +1,14 @@
 import { Components } from 'react-markdown';
 
+export const navigationItems = [
+  { id: 'projects', label: 'Projects', icon: '🚀' },
+  { id: 'experience', label: 'Experience', icon: '💼' },
+  { id: 'skills', label: 'Skills', icon: '⚡' },
+  { id: 'education', label: 'Education', icon: '🎓' },
+  { id: 'achievements', label: 'Achievements', icon: '🏆' },
+  { id: 'links', label: 'Links', icon: '🔗' }
+];
+
 export const workExperience = [
   {
     title: "Web Development Engineer (Freelance)",

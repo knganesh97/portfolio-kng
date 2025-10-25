@@ -1,10 +1,14 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Link from "@/components/ui/Link";
+import { navigationItems } from "@/utils/Constants";
+import { usePathname } from "next/navigation";
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomepage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +26,19 @@ const Header: React.FC = () => {
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80; // Approximate header height
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+    closeSidebar(); // Close mobile sidebar after navigation
   };
 
   return (
@@ -109,7 +126,28 @@ const Header: React.FC = () => {
           </button>
         </div>
         <nav className="p-4">
-          {/* Mobile navigation can be expanded here if needed */}
+          {isHomepage ? (
+            <div className="space-y-2">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-primary/10 text-left group"
+                >
+                  <span className="text-lg" role="img" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <span className="font-medium text-sm">
+                    {item.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="text-sm text-muted-foreground text-center py-8">
+              Navigation available on homepage
+            </div>
+          )}
         </nav>
       </div>
     </>

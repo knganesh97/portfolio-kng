@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import { navigationItems } from '@/utils/Constants';
 
 interface SidebarProps {
   className?: string;
@@ -14,7 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['projects', 'experience', 'skills', 'education', 'achievements', 'links'];
+      const sections = navigationItems.map(item => item.id);
       const scrollPosition = window.scrollY + 100; // Offset for better detection
 
       for (const section of sections) {
@@ -68,14 +69,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
     }
   };
 
-  const navigationItems = [
-    { id: 'projects', label: 'Projects', icon: '🚀' },
-    { id: 'experience', label: 'Experience', icon: '💼' },
-    { id: 'skills', label: 'Skills', icon: '⚡' },
-    { id: 'education', label: 'Education', icon: '🎓' },
-    { id: 'achievements', label: 'Achievements', icon: '🏆' },
-    { id: 'links', label: 'Links', icon: '🔗' }
-  ];
+
 
   return (
     <div className={`fixed right-6 top-1/2 transform -translate-y-1/2 z-40 ${className}`}>
