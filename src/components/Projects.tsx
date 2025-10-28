@@ -5,7 +5,6 @@ import CardContainer from "@/components/ui/CardContainer";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
-import Sparkles, { NoSparkles } from "@/components/ui/Sparkles";
 
 const Projects: React.FC = () => {
   const router = useRouter();
@@ -16,19 +15,18 @@ const Projects: React.FC = () => {
 
   return (
     <div className="mb-12">
-      <Sparkles count={1000}>
-        <CardContainer>
-          <div className="mb-8">
-            <h2 className="text-4xl font-bold mb-4 card-container-fg">Projects</h2>
-            <p className="text-lg card-container-fg opacity-80">
-              Explore my GitHub repositories and projects
-            </p>
-          </div>
+      <CardContainer>
+        <div className="mb-8">
+          <h2 className="text-4xl font-bold mb-4 card-container-fg">Projects</h2>
+          <p className="text-lg card-container-fg opacity-80">
+            Explore my GitHub repositories and projects
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {githubRepositories.map((repository, index) => (
-              <NoSparkles key={index}>
-                <Card
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {githubRepositories.map((repository, index) => (
+            <Card
+              key={index}
                   header={
                     <div className="flex items-center gap-2">
                       <h3 className="text-xl font-semibold text-card-foreground">{repository.repo}</h3>
@@ -69,23 +67,19 @@ const Projects: React.FC = () => {
                     </div>
                   }
                   footer={
-                    <Sparkles count={50}>
-                      <Button
-                        variant="primary"
-                        className="w-full"
-                        onClick={() => handleViewRepo(repository.repo)}
-                      >
-                        View Details
-                      </Button>
-                    </Sparkles>
+                    <Button
+                      variant="primary"
+                      className="w-full"
+                      onClick={() => handleViewRepo(repository.repo)}
+                    >
+                      View Details
+                    </Button>
                   }
                   className="h-full"
                 />
-              </NoSparkles>
             ))}
-          </div>
-        </CardContainer>
-      </Sparkles>
+        </div>
+      </CardContainer>
     </div>
   );
 };

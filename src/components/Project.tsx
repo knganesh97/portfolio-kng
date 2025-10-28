@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import CardContainer from "@/components/ui/CardContainer";
 import ReactMarkdown from "react-markdown";
 import { markdownComponents } from "@/utils/Constants";
-import Sparkles from "@/components/ui/Sparkles";
 
 type ProjectProps = {
   owner: string;
@@ -64,10 +63,9 @@ const Project: React.FC<ProjectProps> = ({ owner, repo, className }) => {
   }, [owner, repo]);
 
   return (
-    <Sparkles count={1000}>
-      <CardContainer className={className}>
-        <div className="space-y-4">
-          <div className="flex items-center gap-2 mb-6">
+    <CardContainer className={className}>
+      <div className="space-y-4">
+        <div className="flex items-center gap-2 mb-6">
             <h2 className="text-2xl font-bold card-container-fg">{repo}</h2>
             <a
               href={`https://github.com/${owner}/${repo}`}
@@ -110,8 +108,7 @@ const Project: React.FC<ProjectProps> = ({ owner, repo, className }) => {
             </div>
           )}
         </div>
-      </CardContainer>
-    </Sparkles>
+    </CardContainer>
   );
 };
 
