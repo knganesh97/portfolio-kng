@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
+import { SparkleIcon } from "@/components/icons";
 
 interface SparklesProps {
   color?: string;
@@ -141,21 +142,10 @@ const Sparkles: React.FC<SparklesProps> = ({
                   animationDuration: `${sparkle.duration}s`,
                 }}
               >
-                <svg
-                  width={sparkle.size}
-                  height={sparkle.size}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 0L13.5 8.5L18 6L15 12L24 12L15 12L18 18L13.5 15.5L12 24L10.5 15.5L6 18L9 12L0 12L9 12L6 6L10.5 8.5L12 0Z"
-                    fill={sparkleColor}
-                    style={{
-                      filter: `drop-shadow(0 0 ${sparkle.size / 2}px ${sparkleColor})`,
-                    }}
-                  />
-                </svg>
+                <SparkleIcon
+                  size={sparkle.size}
+                  color={sparkleColor}
+                />
               </div>
             );
           })}
@@ -186,21 +176,10 @@ const Sparkles: React.FC<SparklesProps> = ({
             animationDuration: `${sparkle.duration}s`,
           }}
         >
-          <svg
-            width={sparkle.size}
-            height={sparkle.size}
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 0L13.5 8.5L18 6L15 12L24 12L15 12L18 18L13.5 15.5L12 24L10.5 15.5L6 18L9 12L0 12L9 12L6 6L10.5 8.5L12 0Z"
-              fill={defaultColor}
-              style={{
-                filter: `drop-shadow(0 0 ${sparkle.size / 2}px ${defaultColor})`,
-              }}
-            />
-          </svg>
+          <SparkleIcon
+            size={sparkle.size}
+            color={defaultColor}
+          />
         </div>
       ))}
     </div>
