@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CardContainer from "@/components/ui/CardContainer";
 import ReactMarkdown from "react-markdown";
 import { markdownComponents } from "@/utils/Constants";
+import ExternalLink from "@/components/ui/ExternalLink";
 
 type ProjectProps = {
   owner: string;
@@ -66,48 +67,34 @@ const Project: React.FC<ProjectProps> = ({ owner, repo, className }) => {
     <CardContainer className={className}>
       <div className="space-y-4">
         <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-2xl font-bold card-container-fg">{repo}</h2>
-          <a
-            href={`https://github.com/${owner}/${repo}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-accent/80 transition-colors"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </a>
+            <h2 className="text-2xl font-bold card-container-fg">{repo}</h2>
+            <ExternalLink
+              href={`https://github.com/${owner}/${repo}`}
+              className="text-accent hover:text-accent/80 transition-colors"
+              ariaLabel={`Open ${repo} on GitHub`}
+            />
+          </div>
+
+          {loading && (
+            <div className="flex justify-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent"></div>
+            </div>
+          )}
+
+          {error && (
+            <div className="text-destructive text-center py-4">
+              {error}
+            </div>
+          )}
+
+          {!loading && !error && readme && (
+            <div className="prose prose-lg max-w-none">
+              <ReactMarkdown components={markdownComponents}>
+                {readme}
+              </ReactMarkdown>
+            </div>
+          )}
         </div>
-
-        {loading && (
-          <div className="flex justify-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent"></div>
-          </div>
-        )}
-
-        {error && (
-          <div className="text-destructive text-center py-4">
-            {error}
-          </div>
-        )}
-
-        {!loading && !error && readme && (
-          <div className="prose prose-lg max-w-none">
-            <ReactMarkdown components={markdownComponents}>
-              {readme}
-            </ReactMarkdown>
-          </div>
-        )}
-      </div>
     </CardContainer>
   );
 };

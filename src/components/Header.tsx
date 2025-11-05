@@ -4,6 +4,8 @@ import Link from "@/components/ui/Link";
 import { NAVIGATION_ITEMS } from "@/utils/Constants";
 import { usePathname } from "next/navigation";
 import { scrollToSection } from "@/utils/scrollUtils";
+import { MenuIcon, CloseIcon } from "@/components/icons";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -53,26 +55,16 @@ const Header: React.FC = () => {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-4">
+          <div className="hidden sm:block">
+            <ThemeSwitcher />
+          </div>
           <button
             onClick={toggleSidebar}
             className="sm:hidden p-2 rounded-full transition-all duration-200 focus:outline-none header-link"
             aria-label="Open menu"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
+            <MenuIcon width={24} height={24} />
           </button>
         </nav>
       </header>
@@ -98,20 +90,11 @@ const Header: React.FC = () => {
             className="p-2 rounded-full transition-all duration-200 header-link"
             aria-label="Close menu"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
+            <CloseIcon width={20} height={20} />
           </button>
+        </div>
+        <div className="p-4 border-b" style={{ borderColor: 'var(--color-header-border)' }}>
+          <ThemeSwitcher />
         </div>
         <nav className="p-4">
           {isHomepage ? (
