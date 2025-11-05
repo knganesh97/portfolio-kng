@@ -30,6 +30,17 @@ export default function ThemeSwitcher() {
 
   const handleCloseDropdown = () => setIsOpen(false);
 
+  const getModeIcon = () => {
+    switch (mode) {
+      case 'light':
+        return <SunIcon className="w-4 h-4" />;
+      case 'dark':
+        return <MoonIcon className="w-4 h-4" />;
+      default:
+        return <MonitorIcon className="w-4 h-4" />;
+    }
+  };
+
   return (
     <div className="relative">
       <button
@@ -37,7 +48,9 @@ export default function ThemeSwitcher() {
         className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-secondary/50 transition-colors"
         aria-label="Change theme"
       >
-        <span className="text-sm font-medium">{currentTheme.name}</span>
+        {getModeIcon()}
+        <span className="text-sm font-medium">Theme</span>
+        <span className="text-sm font-medium text-muted-foreground">· {currentTheme.name}</span>
         <ChevronDownIcon className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
