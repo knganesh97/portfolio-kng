@@ -3,12 +3,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { themes, defaultThemeId } from '@/config/themes';
 
-type ThemeMode = 'light' | 'dark';
+type ThemeMode = 'light' | 'dark' | 'system';
 type ThemeId = keyof typeof themes;
 
 interface ThemeContextType {
   themeId: ThemeId;
   mode: ThemeMode;
+  resolvedMode: 'light' | 'dark';
   setThemeId: (themeId: ThemeId) => void;
   setMode: (mode: ThemeMode) => void;
   toggleMode: () => void;
@@ -21,8 +22,11 @@ const STORAGE_KEY_MODE = 'portfolio-theme-mode';
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [themeId, setThemeIdState] = useState<ThemeId>(defaultThemeId);
-  const [mode, setModeState] = useState<ThemeMode>('light');
+  const [mode, setModeState] = useState<ThemeMode>('system');
+  const [systemMode, setSystemMode] = useState<'light' | 'dark'>('light');
   const [mounted, setMounted] = useState(false);
+
+  const resolvedMode = mode === 'system' ? systemMode : mode;
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
@@ -37,13 +41,35 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     
     if (savedMode) {
       setModeState(savedMode);
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setModeState(prefersDark ? 'dark' : 'light');
     }
     
+    // Get initial system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setSystemMode(prefersDark ? 'dark' : 'light');
+    
     setMounted(true);
+  }, []);
+
+  // Listen for system theme changes
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const handleChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      setSystemMode(e.matches ? 'dark' : 'light');
+    };
+
+    // Modern browsers
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    } 
+    // Fallback for older browsers
+    else if (mediaQuery.addListener) {
+      mediaQuery.addListener(handleChange);
+      return () => mediaQuery.removeListener(handleChange);
+    }
   }, []);
 
   // Apply theme to document
@@ -52,7 +78,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     const root = document.documentElement;
     const theme = themes[themeId];
-    const colors = mode === 'dark' ? theme.dark : theme.light;
+    const colors = resolvedMode === 'dark' ? theme.dark : theme.light;
 
     // Apply theme colors as CSS variables
     Object.entries(colors).forEach(([key, value]) => {
@@ -70,15 +96,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     // Set data attributes for theme and mode
     root.setAttribute('data-theme', themeId);
-    root.setAttribute('data-mode', mode);
+    root.setAttribute('data-mode', resolvedMode);
     
     // Add/remove dark class for Tailwind compatibility
-    if (mode === 'dark') {
+    if (resolvedMode === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
-  }, [themeId, mode, mounted]);
+  }, [themeId, resolvedMode, mounted]);
 
   const setThemeId = (newThemeId: ThemeId) => {
     setThemeIdState(newThemeId);
@@ -91,11 +117,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   };
 
   const toggleMode = () => {
-    setMode(mode === 'light' ? 'dark' : 'light');
+    if (mode === 'system') {
+      setMode('light');
+    } else if (mode === 'light') {
+      setMode('dark');
+    } else {
+      setMode('system');
+    }
   };
 
   return (
-    <ThemeContext.Provider value={{ themeId, mode, setThemeId, setMode, toggleMode }}>
+    <ThemeContext.Provider value={{ themeId, mode, resolvedMode, setThemeId, setMode, toggleMode }}>
       {children}
     </ThemeContext.Provider>
   );
