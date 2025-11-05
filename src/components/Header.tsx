@@ -5,6 +5,7 @@ import { NAVIGATION_ITEMS } from "@/utils/Constants";
 import { usePathname } from "next/navigation";
 import { scrollToSection } from "@/utils/scrollUtils";
 import { MenuIcon, CloseIcon } from "@/components/icons";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -54,7 +55,10 @@ const Header: React.FC = () => {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-4">
+          <div className="hidden sm:block">
+            <ThemeSwitcher />
+          </div>
           <button
             onClick={toggleSidebar}
             className="sm:hidden p-2 rounded-full transition-all duration-200 focus:outline-none header-link"
@@ -88,6 +92,9 @@ const Header: React.FC = () => {
           >
             <CloseIcon width={20} height={20} />
           </button>
+        </div>
+        <div className="p-4 border-b" style={{ borderColor: 'var(--color-header-border)' }}>
+          <ThemeSwitcher />
         </div>
         <nav className="p-4">
           {isHomepage ? (

@@ -3,8 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  /**
+   * Multi-Theme System
+   * 
+   * Theme colors are now dynamically set by the ThemeProvider component.
+   * The provider reads theme configurations from src/config/themes.ts and
+   * applies them as CSS variables at runtime.
+   * 
+   * Default values below are fallbacks for SSR and initial render.
+   * They will be overridden by the ThemeProvider on mount.
+   */
+  
   :root {
-    /* Rust/Terracotta shades - from message bubbles */
+    /* Default fallback values (tloas light theme) */
+    /* Color palettes */
     --color-orange-50: #f7e8e4;
     --color-orange-100: #edc9bf;
     --color-orange-200: #e2a899;
@@ -17,7 +29,6 @@
     --color-orange-900: #5c2418;
     --color-orange-950: #2a1c18;
 
-    /* Sage/Mint green shades - from backgrounds and message bubbles */
     --color-green-50: #f1f7f0;
     --color-green-100: #e3f0e1;
     --color-green-200: #c5e2c1;
@@ -30,7 +41,6 @@
     --color-green-900: #3a5437;
     --color-green-950: #1f2b1e;
 
-    /* Blue/Purple accent shades - from action buttons */
     --color-blue-50: #eef0fb;
     --color-blue-100: #d9ddf5;
     --color-blue-200: #b8c0ed;
@@ -43,7 +53,7 @@
     --color-blue-900: #2c3564;
     --color-blue-950: #1c213d;
 
-    /* Core theme variables - Light Mode */
+    /* Semantic colors */
     --color-background: #a8c9a3;
     --color-foreground: #000000;
     --color-card: #b85a3e;
@@ -65,119 +75,31 @@
     --color-ring: #5b6fd4;
     --radius: 1.25rem;
 
-    /* Header-specific variables - rust tone */
+    /* Component-specific */
     --color-header-bg: #b85a3e;
-    --color-header-bg-rgb: 184, 90, 62; /* RGB values for rgba() */
+    --color-header-bg-rgb: 184, 90, 62;
     --color-header-border: #8f3f2b;
     --color-header-title: #ffffff;
     --color-header-link: #ffffff;
     --color-header-link-hover: #ffffff;
     --color-header-link-bg-hover: #a54d35;
 
-    /* Footer-specific variables - sage green tone */
     --color-footer-bg: #9dbf96;
     --color-footer-text: #000000;
     --color-footer-border: #638b5c;
 
-    /* Card container - same as badges (green) */
     --color-card-container-bg: #9dbf96;
     --color-card-container-foreground: #000000;
     --color-card-container-border: #88af82;
 
-    /* Shimmer gradient */
-    --shimmer-gradient: linear-gradient(90deg, var(--color-orange-500) 0%, var(--color-green-200) 20%, var(--color-green-400) 40%, var(--color-blue-500) 60%, var(--color-green-400) 80%, var(--color-green-200) 100%);
+    --shimmer-gradient: linear-gradient(90deg, #b85a3e 0%, #c5e2c1 20%, #9dbf96 40%, #5b6fd4 60%, #9dbf96 80%, #c5e2c1 100%);
   }
 
-  .dark {
-    --color-background: #6b3326;
-    --color-foreground: #ffffff;
-    --color-card: #9dbf96;
-    --color-card-foreground: #000000;
-    --color-popover: #9dbf96;
-    --color-popover-foreground: #000000;
-    --color-primary: #9dbf96;
-    --color-primary-foreground: #000000;
-    --color-secondary: #2f2420;
-    --color-secondary-foreground: #ffffff;
-    --color-muted: #3a3d47;
-    --color-muted-foreground: #ffffff;
-    --color-accent: #5b6fd4;
-    --color-accent-foreground: #ffffff;
-    --color-destructive: #b85a3e;
-    --color-destructive-foreground: #ffffff;
-    --color-border: #8c6b5f;
-    --color-input: #3a2b26;
-    --color-ring: #5b6fd4;
-
-    /* Header dark mode - rust brown */
-    --color-header-bg: #6b3326;
-    --color-header-bg-rgb: 107, 51, 38; /* RGB values for rgba() */
-    --color-header-border: #4d3832;
-    --color-header-title: #ffffff;
-    --color-header-link: #ffffff;
-    --color-header-link-hover: #ffffff;
-    --color-header-link-bg-hover: #5c2418;
-
-    /* Footer dark mode - dark brown/gray */
-    --color-footer-bg: #2f2420;
-    --color-footer-text: #ffffff;
-    --color-footer-border: #1f1816;
-
-    /* Card container - same as badges (dark brown/gray) */
-    --color-card-container-bg: #2f2420;
-    --color-card-container-foreground: #ffffff;
-    --color-card-container-border: #423530;
-
-    /* Shimmer gradient dark mode */
-    --shimmer-gradient: linear-gradient(90deg, #9dbf96 0%, #c5e2c1 20%, #5b6fd4 40%, #b85a3e 60%, #5b6fd4 80%, #c5e2c1 100%);
-  }
-
-  /* Also respect user's system preference for dark mode */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-background: #6b3326;
-      --color-foreground: #ffffff;
-      --color-card: #9dbf96;
-      --color-card-foreground: #000000;
-      --color-popover: #9dbf96;
-      --color-popover-foreground: #000000;
-      --color-primary: #9dbf96;
-      --color-primary-foreground: #000000;
-      --color-secondary: #2f2420;
-      --color-secondary-foreground: #ffffff;
-      --color-muted: #3a3d47;
-      --color-muted-foreground: #ffffff;
-      --color-accent: #5b6fd4;
-      --color-accent-foreground: #ffffff;
-      --color-destructive: #b85a3e;
-      --color-destructive-foreground: #ffffff;
-      --color-border: #8c6b5f;
-      --color-input: #3a2b26;
-      --color-ring: #5b6fd4;
-
-      /* Header dark mode - rust brown */
-      --color-header-bg: #6b3326;
-      --color-header-bg-rgb: 107, 51, 38; /* RGB values for rgba() */
-      --color-header-border: #4d3832;
-      --color-header-title: #ffffff;
-      --color-header-link: #ffffff;
-      --color-header-link-hover: #ffffff;
-      --color-header-link-bg-hover: #5c2418;
-
-      /* Footer dark mode - dark brown/gray */
-      --color-footer-bg: #2f2420;
-      --color-footer-text: #ffffff;
-      --color-footer-border: #1f1816;
-
-      /* Card container - same as badges (dark brown/gray) */
-      --color-card-container-bg: #2f2420;
-      --color-card-container-foreground: #ffffff;
-      --color-card-container-border: #423530;
-
-      /* Shimmer gradient dark mode */
-      --shimmer-gradient: linear-gradient(90deg, #9dbf96 0%, #c5e2c1 20%, #5b6fd4 40%, #b85a3e 60%, #5b6fd4 80%, #c5e2c1 100%);
-    }
-  }
+  /**
+   * Theme switching is now handled entirely by ThemeProvider
+   * which dynamically updates CSS variables based on selected theme and mode.
+   * No need for static .dark class or @media queries.
+   */
 
   * {
     border-color: var(--color-border);
