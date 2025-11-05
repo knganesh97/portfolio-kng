@@ -3,3 +3,7 @@ export { default as ArrowRightIcon } from './ArrowRightIcon';
 export { default as MenuIcon } from './MenuIcon';
 export { default as CloseIcon } from './CloseIcon';
 export { default as SparkleIcon } from './SparkleIcon';
+export { default as SunIcon } from './SunIcon';
+export { default as MoonIcon } from './MoonIcon';
+export { default as MonitorIcon } from './MonitorIcon';
+export { default as ChevronDownIcon } from './ChevronDownIcon';
