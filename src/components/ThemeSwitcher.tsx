@@ -3,9 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import { themes } from '@/config/themes';
+import { SunIcon, MoonIcon, MonitorIcon, ChevronDownIcon } from './icons';
+import ThemeModeButton from './ui/ThemeModeButton';
+import ThemeOptionButton from './ui/ThemeOptionButton';
+import DropdownBackdrop from './ui/DropdownBackdrop';
 
 export default function ThemeSwitcher() {
-  const { themeId, mode, setThemeId, toggleMode } = useTheme();
+  const { themeId, mode, setThemeId, setMode } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -24,6 +28,19 @@ export default function ThemeSwitcher() {
 
   const currentTheme = themes[themeId];
 
+  const handleCloseDropdown = () => setIsOpen(false);
+
+  const getModeIcon = () => {
+    switch (mode) {
+      case 'light':
+        return <SunIcon className="w-4 h-4" />;
+      case 'dark':
+        return <MoonIcon className="w-4 h-4" />;
+      default:
+        return <MonitorIcon className="w-4 h-4" />;
+    }
+  };
+
   return (
     <div className="relative">
       <button
@@ -31,24 +48,15 @@ export default function ThemeSwitcher() {
         className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-secondary/50 transition-colors"
         aria-label="Change theme"
       >
-        <span className="text-sm font-medium">{currentTheme.name}</span>
-        <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+        {getModeIcon()}
+        <span className="text-sm font-medium">Theme</span>
+        <span className="text-sm font-medium text-muted-foreground">· {currentTheme.name}</span>
+        <ChevronDownIcon className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
         <>
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 z-40"
-            onClick={() => setIsOpen(false)}
-          />
+          <DropdownBackdrop onClick={handleCloseDropdown} />
           
           {/* Dropdown menu */}
           <div className="absolute right-0 mt-2 w-72 bg-card text-card-foreground rounded-lg shadow-lg border border-border z-50">
@@ -58,20 +66,13 @@ export default function ThemeSwitcher() {
                 <h3 className="text-sm font-semibold mb-2">Theme</h3>
                 <div className="space-y-2">
                   {Object.values(themes).map((theme) => (
-                    <button
+                    <ThemeOptionButton
                       key={theme.id}
-                      onClick={() => {
-                        setThemeId(theme.id as keyof typeof themes);
-                      }}
-                      className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
-                        themeId === theme.id
-                          ? 'bg-primary text-primary-foreground'
-                          : 'hover:bg-secondary'
-                      }`}
-                    >
-                      <div className="font-medium">{theme.name}</div>
-                      <div className="text-xs opacity-80 mt-0.5">{theme.description}</div>
-                    </button>
+                      isActive={themeId === theme.id}
+                      onClick={() => setThemeId(theme.id as keyof typeof themes)}
+                      name={theme.name}
+                      description={theme.description}
+                    />
                   ))}
                 </div>
               </div>
@@ -79,33 +80,25 @@ export default function ThemeSwitcher() {
               {/* Mode toggle */}
               <div className="border-t border-border pt-4">
                 <h3 className="text-sm font-semibold mb-2">Mode</h3>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => toggleMode()}
-                    className={`flex-1 px-3 py-2 rounded-md transition-colors flex items-center justify-center gap-2 ${
-                      mode === 'light'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'hover:bg-secondary'
-                    }`}
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-                    </svg>
-                    Light
-                  </button>
-                  <button
-                    onClick={() => toggleMode()}
-                    className={`flex-1 px-3 py-2 rounded-md transition-colors flex items-center justify-center gap-2 ${
-                      mode === 'dark'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'hover:bg-secondary'
-                    }`}
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                    </svg>
-                    Dark
-                  </button>
+                <div className="grid grid-cols-3 gap-2">
+                  <ThemeModeButton
+                    isActive={mode === 'light'}
+                    onClick={() => setMode('light')}
+                    icon={<SunIcon />}
+                    label="Light"
+                  />
+                  <ThemeModeButton
+                    isActive={mode === 'dark'}
+                    onClick={() => setMode('dark')}
+                    icon={<MoonIcon />}
+                    label="Dark"
+                  />
+                  <ThemeModeButton
+                    isActive={mode === 'system'}
+                    onClick={() => setMode('system')}
+                    icon={<MonitorIcon />}
+                    label="System"
+                  />
                 </div>
               </div>
             </div>
