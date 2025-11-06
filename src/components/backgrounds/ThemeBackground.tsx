@@ -3,6 +3,7 @@
 import React from "react";
 import { useTheme } from "@/components/ThemeProvider";
 import { ShowgirlBackground } from "./ShowgirlBackground";
+import { TrafalgarLawBackground } from "./TrafalgarLawBackground";
 import Sparkles from "@/components/ui/Sparkles";
 
 /**
@@ -17,7 +18,6 @@ export const ThemeBackground: React.FC<{ children: React.ReactNode }> = ({
 
   // Showgirl theme gets sparkles
   if (themeId === "tloas") {
-
     return (
       <>
         <ShowgirlBackground />
@@ -30,6 +30,16 @@ export const ThemeBackground: React.FC<{ children: React.ReactNode }> = ({
         >
           {children}
         </Sparkles>
+      </>
+    );
+  }
+  
+  // Trafalgar Law theme gets jolly roger background
+  else if (themeId === "trafalgarlaw") {
+    return (
+      <>
+        <TrafalgarLawBackground />
+        {children}
       </>
     );
   }
