@@ -614,4 +614,4 @@ export const themes: Record<string, Theme> = {
 };
 
 export const themeIds = Object.keys(themes) as Array<keyof typeof themes>;
-export const defaultThemeId = 'tloas';
+export const defaultThemeId = 'default';
