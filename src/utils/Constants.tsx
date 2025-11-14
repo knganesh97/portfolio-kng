@@ -107,6 +107,11 @@ export const githubRepositories = [
   },
   {
     owner: "knganesh97",
+    repo: "dookan-assignment",
+    description: "Assignment project for Dookan",
+  },
+  {
+    owner: "knganesh97",
     repo: "portfolio-kng",
     description: "Personal portfolio website",
   },

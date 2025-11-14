@@ -2,13 +2,17 @@ import React from "react";
 import { githubRepositories } from "@/utils/Constants";
 import CardContainer from "@/components/ui/CardContainer";
 import ProjectCard from "@/components/ProjectCard";
+import GitHubIcon from "@/components/icons/GitHubIcon";
 
 const Projects: React.FC = () => {
   return (
     <div className="mb-12">
       <CardContainer>
         <div className="mb-8">
-          <h2 className="text-4xl font-bold mb-4 card-container-fg">Projects</h2>
+          <div className="flex items-center gap-3 mb-4">
+            <GitHubIcon size={36} className="card-container-fg" />
+            <h2 className="text-4xl font-bold card-container-fg">Projects</h2>
+          </div>
           <p className="text-lg card-container-fg opacity-80">
             Explore my GitHub repositories and projects
           </p>

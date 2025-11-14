@@ -7,3 +7,4 @@ export { default as SunIcon } from './SunIcon';
 export { default as MoonIcon } from './MoonIcon';
 export { default as MonitorIcon } from './MonitorIcon';
 export { default as ChevronDownIcon } from './ChevronDownIcon';
+export { default as DownloadFileIcon } from './DownloadFileIcon';
