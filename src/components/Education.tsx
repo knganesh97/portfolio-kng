@@ -1,16 +1,21 @@
 'use client'
 import React from 'react';
 import Card from '@/components/ui/Card';
+import CardContainer from '@/components/ui/CardContainer';
 import { educationData } from '@/utils/Constants';
 
 const Education: React.FC = () => {
   return (
-    <section className="mb-12">
-      <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
-        Education
-      </h2>
-      
-      <div className="space-y-6">
+    <div className="mb-12">
+      <CardContainer>
+        <div className="mb-8">
+          <h2 className="text-4xl font-bold card-container-fg mb-4">Education</h2>
+          <p className="text-lg card-container-fg opacity-80">
+            Academic background and qualifications
+          </p>
+        </div>
+
+        <div className="space-y-6">
         {educationData.map((education, index) => (
           <Card 
             key={index}
@@ -65,8 +70,9 @@ const Education: React.FC = () => {
             }
           />
         ))}
-      </div>
-    </section>
+        </div>
+      </CardContainer>
+    </div>
   );
 };
 

@@ -24,28 +24,30 @@ const RolesList: React.FC<RolesListProps> = ({
   className = "" 
 }) => {
   return (
-    <CardContainer className={className}>
-      <div className="space-y-6">
-        <h2 className="text-3xl font-bold mb-8 card-container-fg">
-          {title}
-        </h2>
-        
+    <div className="mb-12">
+      <CardContainer className={className}>
         <div className="space-y-6">
-          {roles.map((role, index) => (
-            <Role
-              key={index}
-              title={role.title}
-              description={role.description}
-              contributions={role.contributions}
-              startDate={role.startDate}
-              endDate={role.endDate}
-              companyName={role.companyName}
-              techStack={role.techStack}
-            />
-          ))}
+          <h2 className="text-3xl font-bold mb-8 card-container-fg">
+            {title}
+          </h2>
+          
+          <div className="space-y-6">
+            {roles.map((role, index) => (
+              <Role
+                key={index}
+                title={role.title}
+                description={role.description}
+                contributions={role.contributions}
+                startDate={role.startDate}
+                endDate={role.endDate}
+                companyName={role.companyName}
+                techStack={role.techStack}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </CardContainer>
+      </CardContainer>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Card from '@/components/ui/Card';
+import CardContainer from '@/components/ui/CardContainer';
 import { achievements } from '@/utils/Constants';
 
 const categoryColors = {
@@ -12,12 +13,16 @@ const categoryColors = {
 
 const Achievements: React.FC = () => {
   return (
-    <section className="mb-12">
-      <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
-        Achievements
-      </h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="mb-12">
+      <CardContainer>
+        <div className="mb-8">
+          <h2 className="text-4xl font-bold card-container-fg mb-4">Achievements</h2>
+          <p className="text-lg card-container-fg opacity-80">
+            Notable accomplishments and recognitions
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {achievements.map((achievement, index) => (
           <Card 
             key={index}
@@ -56,8 +61,9 @@ const Achievements: React.FC = () => {
             }
           />
         ))}
-      </div>
-    </section>
+        </div>
+      </CardContainer>
+    </div>
   );
 };
 
