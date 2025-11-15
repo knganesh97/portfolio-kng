@@ -5,12 +5,11 @@ export const HEADER_HEIGHT = 80; // Height of the fixed header in pixels
 export const SCROLL_DETECTION_OFFSET = 100; // Offset for scroll position detection to account for fixed header
 
 export const NAVIGATION_ITEMS = [
-  { id: 'projects', label: 'Projects', icon: '🚀' },
-  { id: 'experience', label: 'Experience', icon: '💼' },
-  { id: 'skills', label: 'Skills', icon: '⚡' },
-  { id: 'education', label: 'Education', icon: '🎓' },
-  { id: 'achievements', label: 'Achievements', icon: '🏆' },
-  { id: 'links', label: 'Links', icon: '🔗' }
+  { id: 'projects', label: 'Projects'},
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'education', label: 'Education' },
+  { id: 'achievements', label: 'Achievements' }
 ];
 
 export const workExperience = [
@@ -122,33 +121,27 @@ export const githubRepositories = [
 export interface SkillCategory {
   category: string;
   skills: string[];
-  icon: string;
 }
 
 export const skillCategories: SkillCategory[] = [
   {
     category: "Programming Languages",
-    icon: "💻",
     skills: ["Golang", "Python", "Java", "Spring Boot", "Javascript"]
   },
   {
     category: "Frontend Technologies",
-    icon: "🎨",
     skills: ["React", "Node.js", "Typescript", "CSS", "HTML"]
   },
   {
     category: "Database Technologies",
-    icon: "💾",
     skills: ["SQL (Postgres)", "NoSQL (MongoDB, DynamoDB)"]
   },
   {
     category: "Cloud & Infrastructure",
-    icon: "☁️",
     skills: ["AWS", "Firebase", "micro services architecture"]
   },
   {
     category: "Core Skills",
-    icon: "🧠",
     skills: ["Problem solving", "data structures", "algorithms"]
   }
 ];
@@ -170,9 +163,8 @@ export const educationData: EducationItem[] = [
     degree: "Integrated Dual Degree: M.Sc.(Hons.) Mathematics + B.E.(Hons.) Civil Engineering",
     institution: "BITS Pilani - Hyderabad Campus",
     location: "Hyderabad, India",
-    startDate: "2019",
-    endDate: "2024",
-    grade: "01/2019",
+    startDate: "2014",
+    endDate: "2019",
     description: "Integrated dual degree program combining advanced mathematics and civil engineering.",
     highlights: [
       "Thesis on Differential Equations for Fluid Flow in Pipes",
@@ -188,7 +180,6 @@ export interface Achievement {
   description: string;
   category: 'Professional' | 'Technical' | 'Academic' | 'Leadership';
   date?: string;
-  icon: string;
   metrics?: string;
 }
 
@@ -198,7 +189,6 @@ export const achievements: Achievement[] = [
     description: "Received 'Customer Obsession' accolade at Amazon for exceptional customer-focused approach.",
     category: "Professional",
     date: "2022-2023",
-    icon: "🏅",
     metrics: "Recognition award"
   },
   {
@@ -206,7 +196,6 @@ export const achievements: Achievement[] = [
     description: "Received 10 stars for task completions at HumAIn, demonstrating consistent high-quality delivery.",
     category: "Professional",
     date: "2024-2025",
-    icon: "⭐",
     metrics: "10 stars"
   },
   {
@@ -214,23 +203,13 @@ export const achievements: Achievement[] = [
     description: "Developed new features for internal utility website that boosted cross-team productivity significantly.",
     category: "Technical",
     date: "2022",
-    icon: "🚀",
     metrics: "150% increase"
-  },
-  {
-    title: "Backend Efficiency Improvement",
-    description: "Built a CMS with Go that enhanced backend efficiency by 400% at ChessBase India.",
-    category: "Technical",
-    date: "2020-2022",
-    icon: "⚡",
-    metrics: "400% improvement"
   },
   {
     title: "Platform Performance Enhancement",
     description: "Built backend APIs using Go, improving platform performance by 25% at ChessBase India.",
     category: "Technical",
     date: "2020-2022",
-    icon: "📈",
     metrics: "25% improvement"
   },
   {
@@ -238,7 +217,6 @@ export const achievements: Achievement[] = [
     description: "Contributed 48 clean pull requests in a 6-member team, delivering on tight deadlines.",
     category: "Professional",
     date: "2024-2025",
-    icon: "💻",
     metrics: "48 PRs"
   }
 ];
@@ -269,7 +247,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Email",
-    url: "mailto:ganeshkantimahanthi@gmail.com",
+    url: "mailto:knganesh97@gmail.com",
     description: "Send me an email for collaborations",
     icon: null, // Will be set in component
     category: "Contact"

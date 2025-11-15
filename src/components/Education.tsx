@@ -7,7 +7,6 @@ const Education: React.FC = () => {
   return (
     <section className="mb-12">
       <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
-        <span className="text-4xl">🎓</span>
         Education
       </h2>
       
@@ -27,7 +26,7 @@ const Education: React.FC = () => {
                       {education.institution}
                     </p>
                     <p className="text-muted-foreground mb-2">
-                      📍 {education.location}
+                      {education.location}
                     </p>
                     {education.grade && (
                       <p className="text-muted-foreground font-medium">

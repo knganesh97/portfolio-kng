@@ -3,7 +3,6 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Achievements from "@/components/Achievements";
-import Links from "@/components/Links";
 import Sidebar from "@/components/Sidebar";
 import ProfileHeader from "@/components/ProfileHeader";
 import ResumeDownload from "@/components/ResumeDownload";
@@ -35,10 +34,6 @@ export default function Home() {
 
         <div id="achievements">
           <Achievements />
-        </div>
-
-        <div id="links">
-          <Links />
         </div>
       </div>
 

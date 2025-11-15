@@ -14,7 +14,6 @@ const Achievements: React.FC = () => {
   return (
     <section className="mb-12">
       <h2 className="text-3xl font-bold text-foreground mb-8 flex items-center gap-3">
-        <span className="text-4xl">🏆</span>
         Achievements
       </h2>
       
@@ -26,7 +25,6 @@ const Achievements: React.FC = () => {
             body={
               <div className="p-6">
                 <div className="flex items-start gap-3 mb-4">
-                  <span className="text-3xl">{achievement.icon}</span>
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
                       <h3 className="text-lg font-semibold text-foreground">
@@ -39,13 +37,13 @@ const Achievements: React.FC = () => {
                     
                     {achievement.date && (
                       <p className="text-sm text-muted-foreground mb-2">
-                        📅 {achievement.date}
+                        {achievement.date}
                       </p>
                     )}
                     
                     {achievement.metrics && (
                       <p className="text-sm font-medium text-primary mb-3">
-                        📊 {achievement.metrics}
+                        {achievement.metrics}
                       </p>
                     )}
                   </div>

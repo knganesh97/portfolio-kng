@@ -89,9 +89,6 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
               `}
               aria-label={`Navigate to ${item.label} section`}
             >
-              <span className="text-lg" role="img" aria-hidden="true">
-                {item.icon}
-              </span>
               <span className="font-medium text-sm whitespace-nowrap">
                 {item.label}
               </span>

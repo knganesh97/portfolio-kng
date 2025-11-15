@@ -9,3 +9,5 @@ export { default as MoonIcon } from './MoonIcon';
 export { default as MonitorIcon } from './MonitorIcon';
 export { default as ChevronDownIcon } from './ChevronDownIcon';
 export { default as DownloadFileIcon } from './DownloadFileIcon';
+export { default as LinkedInIcon } from './LinkedInIcon';
+export { default as EmailIcon } from './EmailIcon';
