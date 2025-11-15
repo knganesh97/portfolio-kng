@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@/components/ui/Card';
 
-interface RoleProps {
+interface RoleCardProps {
   title: string;
   description: string;
   contributions: string[];
@@ -11,7 +11,7 @@ interface RoleProps {
   techStack: string[];
 }
 
-const Role: React.FC<RoleProps> = ({
+const RoleCard: React.FC<RoleCardProps> = ({
   title,
   description,
   contributions,
@@ -69,4 +69,4 @@ const Role: React.FC<RoleProps> = ({
   );
 };
 
-export default Role;
+export default RoleCard;

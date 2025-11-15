@@ -1,5 +1,5 @@
 import React from 'react';
-import Role from '@/components/Role';
+import RoleCard from '@/components/RoleCard';
 import CardContainer from '@/components/ui/CardContainer';
 
 interface RoleData {
@@ -12,13 +12,13 @@ interface RoleData {
   techStack: string[];
 }
 
-interface RolesListProps {
+interface RolesProps {
   roles: RoleData[];
   title?: string;
   className?: string;
 }
 
-const RolesList: React.FC<RolesListProps> = ({ 
+const Roles: React.FC<RolesProps> = ({ 
   roles, 
   title = "Work Experience",
   className = "" 
@@ -33,7 +33,7 @@ const RolesList: React.FC<RolesListProps> = ({
           
           <div className="space-y-6">
             {roles.map((role, index) => (
-              <Role
+              <RoleCard
                 key={index}
                 title={role.title}
                 description={role.description}
@@ -51,4 +51,4 @@ const RolesList: React.FC<RolesListProps> = ({
   );
 };
 
-export default RolesList;
+export default Roles;
