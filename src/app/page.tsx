@@ -1,5 +1,8 @@
-import RolesList from "@/components/RolesList";
+import Roles from "@/components/Roles";
 import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Education from "@/components/Education";
+import Achievements from "@/components/Achievements";
 import Sidebar from "@/components/Sidebar";
 import ProfileHeader from "@/components/ProfileHeader";
 import ResumeDownload from "@/components/ResumeDownload";
@@ -18,7 +21,19 @@ export default function Home() {
         </div>
         
         <div id="experience">
-          <RolesList roles={workExperience} />
+          <Roles roles={workExperience} />
+        </div>
+
+        <div id="skills">
+          <Skills />
+        </div>
+
+        <div id="education">
+          <Education />
+        </div>
+
+        <div id="achievements">
+          <Achievements />
         </div>
       </div>
 

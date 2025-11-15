@@ -5,12 +5,11 @@ export const HEADER_HEIGHT = 80; // Height of the fixed header in pixels
 export const SCROLL_DETECTION_OFFSET = 100; // Offset for scroll position detection to account for fixed header
 
 export const NAVIGATION_ITEMS = [
-  { id: 'projects', label: 'Projects', icon: '🚀' },
-  { id: 'experience', label: 'Experience', icon: '💼' },
-  { id: 'skills', label: 'Skills', icon: '⚡' },
-  { id: 'education', label: 'Education', icon: '🎓' },
-  { id: 'achievements', label: 'Achievements', icon: '🏆' },
-  { id: 'links', label: 'Links', icon: '🔗' }
+  { id: 'projects', label: 'Projects'},
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'education', label: 'Education' },
+  { id: 'achievements', label: 'Achievements' }
 ];
 
 export const workExperience = [
@@ -116,6 +115,143 @@ export const githubRepositories = [
     description: "Personal portfolio website",
   },
   // Add more repositories as needed
+];
+
+// Skills Data
+export interface SkillCategory {
+  category: string;
+  skills: string[];
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    category: "Programming Languages",
+    skills: ["Golang", "Python", "Java", "Spring Boot", "Javascript"]
+  },
+  {
+    category: "Frontend Technologies",
+    skills: ["React", "Node.js", "Typescript", "CSS", "HTML"]
+  },
+  {
+    category: "Database Technologies",
+    skills: ["Postgres", "MongoDB", "DynamoDB", "Firestore"]
+  },
+  {
+    category: "Cloud & Infrastructure",
+    skills: ["AWS", "Firebase", "micro services architecture"]
+  },
+  {
+    category: "Core Skills",
+    skills: ["Problem solving", "data structures", "algorithms"]
+  }
+];
+
+// Education Data
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  grade?: string;
+  description?: string;
+  highlights?: string[];
+}
+
+export const educationData: EducationItem[] = [
+  {
+    degree: "Integrated Dual Degree: M.Sc.(Hons.) Mathematics + B.E.(Hons.) Civil Engineering",
+    institution: "BITS Pilani - Hyderabad Campus",
+    location: "Hyderabad, India",
+    startDate: "2014",
+    endDate: "2019",
+    description: "Integrated dual degree program combining advanced mathematics and civil engineering.",
+    highlights: [
+      "Thesis on Differential Equations for Fluid Flow in Pipes",
+      "Design Project on Pipe Network Optimisation through Water Cycle Algorithm",
+      "Study Project on Application of Differential Equations in Structural Engineering"
+    ]
+  }
+];
+
+// Achievements Data
+export interface Achievement {
+  title: string;
+  description: string;
+  category: 'Professional' | 'Technical' | 'Academic' | 'Leadership';
+  date?: string;
+  metrics?: string;
+}
+
+export const achievements: Achievement[] = [
+  {
+    title: "Customer Obsession Accolade",
+    description: "Received 'Customer Obsession' accolade at Amazon for exceptional customer-focused approach.",
+    category: "Professional",
+    date: "2022-2023",
+    metrics: "Recognition award"
+  },
+  {
+    title: "10 Stars Recognition",
+    description: "Received 10 stars for task completions at HumAIn, demonstrating consistent high-quality delivery.",
+    category: "Professional",
+    date: "2024-2025",
+    metrics: "10 stars"
+  },
+  {
+    title: "150% Productivity Boost",
+    description: "Developed new features for internal utility website that boosted cross-team productivity significantly.",
+    category: "Technical",
+    date: "2022",
+    metrics: "150% increase"
+  },
+  {
+    title: "Platform Performance Enhancement",
+    description: "Built backend APIs using Go, improving platform performance by 25% at ChessBase India.",
+    category: "Technical",
+    date: "2020-2022",
+    metrics: "25% improvement"
+  },
+  {
+    title: "Clean Code Delivery",
+    description: "Contributed 48 clean pull requests in a 6-member team, delivering on tight deadlines.",
+    category: "Professional",
+    date: "2024-2025",
+    metrics: "48 PRs"
+  }
+];
+
+// Social Links Data
+export interface SocialLink {
+  name: string;
+  url: string;
+  description: string;
+  icon: React.ReactNode;
+  category: 'Professional' | 'Social' | 'Portfolio' | 'Contact';
+}
+
+export const socialLinks: SocialLink[] = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/ganesh-kantimahanthi-297385154/",
+    description: "Connect with me professionally",
+    icon: null, // Will be set in component
+    category: "Professional"
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/knganesh97",
+    description: "Check out my open source projects and contributions",
+    icon: null, // Will be set in component
+    category: "Professional"
+  },
+  {
+    name: "Email",
+    url: "mailto:knganesh97@gmail.com",
+    description: "Send me an email for collaborations",
+    icon: null, // Will be set in component
+    category: "Contact"
+  }
 ];
 
 // Define proper component types that match ReactMarkdown's expectations
