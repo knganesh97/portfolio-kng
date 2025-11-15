@@ -105,9 +105,6 @@ const Header: React.FC = () => {
                   onClick={() => scrollToSection(item.id, closeSidebar)}
                   className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-primary/10 text-left group"
                 >
-                  <span className="text-lg" role="img" aria-hidden="true">
-                    {item.icon}
-                  </span>
                   <span className="font-medium text-sm">
                     {item.label}
                   </span>
