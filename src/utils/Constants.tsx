@@ -134,7 +134,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     category: "Database Technologies",
-    skills: ["SQL (Postgres)", "NoSQL (MongoDB, DynamoDB)"]
+    skills: ["Postgres", "MongoDB", "DynamoDB", "Firestore"]
   },
   {
     category: "Cloud & Infrastructure",

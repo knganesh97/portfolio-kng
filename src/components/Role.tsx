@@ -21,10 +21,10 @@ const Role: React.FC<RoleProps> = ({
   techStack
 }) => {
   const header = (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col items-start gap-1">
       <h3 className="text-xl font-semibold text-card-foreground">{title}</h3>
       <span className="text-lg font-medium text-card-foreground opacity-90">{companyName}</span>
-      <span className="text-sm text-card-foreground opacity-75">{startDate} - {endDate}</span>
+      <span className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">{startDate} - {endDate}</span>
     </div>
   );
 
