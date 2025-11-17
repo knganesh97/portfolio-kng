@@ -1,4 +1,4 @@
-import { HEADER_HEIGHT } from './Constants';
+import { HEADER_HEIGHT } from '@/styles/styleConstants';
 
 /**
  * Scrolls to a section on the page, accounting for the fixed header height

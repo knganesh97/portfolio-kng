@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardContainer from "@/components/ui/CardContainer";
 import ReactMarkdown from "react-markdown";
-import { markdownComponents } from "@/utils/Constants";
+import { markdownComponents } from "@/styles/styleConstants";
 import ExternalLink from "@/components/ui/ExternalLink";
 
 type ProjectProps = {
