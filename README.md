@@ -205,6 +205,78 @@ Colors for specific UI components:
 5. **Testing** - Test both light and dark modes thoroughly
 6. **Semantic First** - Define semantic colors first, then component-specific overrides
 
+## Theme Background Components
+
+The portfolio features theme-specific background components that can include animations, effects, and custom styling to enhance the visual experience of each theme.
+
+### How It Works
+
+1. **ThemeBackground.tsx** - The main wrapper component that renders the appropriate background based on the active theme
+2. **Theme-specific backgrounds** - Individual background components for each theme (e.g., ShowgirlBackground.tsx)
+
+### Current Implementations
+
+#### The Life of a Showgirl (tloas)
+- **Component**: `ShowgirlBackground.tsx`
+- **Features**: Uses theme-based background colors with animated sparkles overlay
+- **Background**: Uses CSS variables for theme-aware background colors
+- **Animation**: Sparkles are added via the `Sparkles` component wrapper in `ThemeBackground.tsx`
+
+### Adding a New Theme Background
+
+To add a custom background for a new theme:
+
+#### 1. Create the background component:
+```tsx
+// src/components/backgrounds/YourThemeBackground.tsx
+"use client";
+
+import React from "react";
+
+export const YourThemeBackground: React.FC = () => {
+  return (
+    <div
+      className="fixed inset-0 -z-10 w-full h-full bg-background"
+      style={{ transition: "background-color 0.3s ease" }}
+    >
+      {/* Add your custom effects, animations, particles, etc. */}
+    </div>
+  );
+};
+```
+
+#### 2. Register the background in ThemeBackground.tsx:
+```tsx
+import { YourThemeBackground } from "./YourThemeBackground";
+
+// Add a new conditional block for your theme
+if (themeId === "yourThemeId") {
+  return (
+    <>
+      <YourThemeBackground />
+      {children}
+    </>
+  );
+}
+```
+
+#### 3. Export from index.ts:
+```tsx
+export { YourThemeBackground } from "./YourThemeBackground";
+```
+
+### Fallback Behavior
+
+If a theme doesn't have a custom background component, `ThemeBackground` automatically falls back to a simple colored background using the theme's `background` color from the theme configuration.
+
+### Background Development Tips
+
+- Use `fixed inset-0 -z-10 w-full h-full` to ensure the background stays behind all content
+- Use `bg-background` class to automatically handle light/dark mode via CSS variables
+- Consider performance when adding animations (use CSS transforms/opacity when possible)
+- Test with different screen sizes and devices
+- Follow the pattern from existing backgrounds (`ShowgirlBackground.tsx`, `TrafalgarLawBackground.tsx`)
+
 ## Customization
 
 ### Updating Content
