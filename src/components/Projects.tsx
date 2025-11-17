@@ -1,10 +1,28 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import { githubRepositories } from "@/utils/Constants";
 import CardContainer from "@/components/ui/CardContainer";
 import ProjectCard from "@/components/ProjectCard";
+import ProjectModal from "@/components/ProjectModal";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 
 const Projects: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<{
+    owner: string;
+    repo: string;
+  } | null>(null);
+
+  const handleViewDetails = (owner: string, repo: string) => {
+    setSelectedProject({ owner, repo });
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <div className="mb-12">
       <CardContainer>
@@ -25,10 +43,21 @@ const Projects: React.FC = () => {
               repo={repository.repo}
               owner={repository.owner}
               description={repository.description}
+              onViewDetails={() => handleViewDetails(repository.owner, repository.repo)}
             />
           ))}
         </div>
       </CardContainer>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          open={modalOpen}
+          onClose={closeModal}
+          owner={selectedProject.owner}
+          repo={selectedProject.repo}
+        />
+      )}
     </div>
   );
 };

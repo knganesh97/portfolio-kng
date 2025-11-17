@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { NAVIGATION_ITEMS, SCROLL_DETECTION_OFFSET } from '@/utils/Constants';
+import { NAVIGATION_ITEMS } from '@/utils/Constants';
+import { SCROLL_DETECTION_OFFSET } from '@/styles/styleConstants';
 import { scrollToSection } from '@/utils/scrollUtils';
 
 interface SidebarProps {

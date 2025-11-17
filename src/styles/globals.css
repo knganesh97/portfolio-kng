@@ -201,5 +201,41 @@
   .animate-sparkle {
     animation: sparkle 2s ease-in-out infinite;
   }
+
+  /* Better UTF-8 and box-drawing character support for code blocks */
+  pre, code {
+    -webkit-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0;
+    -webkit-font-variant-ligatures: none;
+    font-variant-ligatures: none;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Ensure proper box-drawing characters display */
+  pre code {
+    font-family: "SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+    white-space: pre;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    tab-size: 2;
+    unicode-bidi: embed;
+    direction: ltr;
+  }
+
+  /* Specifically for tree structure characters */
+  .prose pre {
+    font-variant-east-asian: normal;
+    font-variant-numeric: normal;
+    font-variant-ligatures: none;
+  }
+
+  /* Force UTF-8 rendering */
+  .prose pre code {
+    font-synthesis: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
 }
 

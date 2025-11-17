@@ -3,21 +3,15 @@ import React from "react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import ExternalLink from "@/components/ui/ExternalLink";
-import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   repo: string;
   owner: string;
   description: string;
+  onViewDetails: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ repo, owner, description }) => {
-  const router = useRouter();
-
-  const handleViewRepo = () => {
-    router.push(`/project/${repo}`);
-  };
-
+const ProjectCard: React.FC<ProjectCardProps> = ({ repo, owner, description, onViewDetails }) => {
   return (
     <Card
       header={
@@ -45,7 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ repo, owner, description }) =
         <Button
           variant="primary"
           className="w-full"
-          onClick={handleViewRepo}
+          onClick={onViewDetails}
         >
           View Details
         </Button>
