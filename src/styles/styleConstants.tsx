@@ -1,3 +1,4 @@
+import React from 'react';
 import { Components } from 'react-markdown';
 
 // Layout Constants
@@ -72,10 +73,15 @@ export const markdownComponents: Components = {
     };
 
     // Extract and fix text content
-    const getTextContent = (node: any): string => {
+    const getTextContent = (node: React.ReactNode): string => {
       if (typeof node === 'string') return handleTreeStructure(node);
       if (Array.isArray(node)) return node.map(getTextContent).join('');
-      if (node?.props?.children) return getTextContent(node.props.children);
+      if (React.isValidElement(node)) {
+        const element = node as React.ReactElement<{ children?: React.ReactNode }>;
+        if (element.props?.children) {
+          return getTextContent(element.props.children);
+        }
+      }
       return '';
     };
 
@@ -104,10 +110,15 @@ export const markdownComponents: Components = {
     };
 
     // Extract text content and fix encoding issues
-    const getTextContent = (node: any): string => {
+    const getTextContent = (node: React.ReactNode): string => {
       if (typeof node === 'string') return handleTreeStructure(node);
       if (Array.isArray(node)) return node.map(getTextContent).join('');
-      if (node?.props?.children) return getTextContent(node.props.children);
+      if (React.isValidElement(node)) {
+        const element = node as React.ReactElement<{ children?: React.ReactNode }>;
+        if (element.props?.children) {
+          return getTextContent(element.props.children);
+        }
+      }
       return '';
     };
 
