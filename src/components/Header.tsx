@@ -1,12 +1,9 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Link from "@/components/ui/Link";
-import { MenuIcon } from "@/components/icons";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import MobileSidebar from "@/components/MobileSidebar";
 
 const Header: React.FC = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -19,13 +16,7 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
-  };
 
   return (
     <>
@@ -51,22 +42,10 @@ const Header: React.FC = () => {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-4">
-          <div className="hidden sm:block">
-            <ThemeSwitcher />
-          </div>
-          <button
-            onClick={toggleSidebar}
-            className="sm:hidden p-2 rounded-full transition-all duration-200 focus:outline-none header-link"
-            aria-label="Open menu"
-          >
-            <MenuIcon width={24} height={24} />
-          </button>
+        <nav className="flex items-center">
+          <ThemeSwitcher />
         </nav>
       </header>
-
-      {/* Mobile Sidebar */}
-      <MobileSidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
     </>
   );
 };
