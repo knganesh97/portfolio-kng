@@ -37,10 +37,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Sidebar - only visible on larger screens */}
-      <div className="hidden lg:block">
-        <Sidebar />
-      </div>
+      {/* Sidebar - responsive for both mobile and desktop */}
+      <Sidebar />
     </div>
   );
 }

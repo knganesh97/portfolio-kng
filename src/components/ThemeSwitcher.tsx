@@ -20,8 +20,8 @@ export default function ThemeSwitcher() {
   // Don't render until mounted to avoid hydration mismatch
   if (!mounted) {
     return (
-      <div className="flex items-center gap-2 px-3 py-2 rounded-lg w-32 h-10">
-        <span className="text-sm font-medium opacity-0">Loading...</span>
+      <div className="flex items-center gap-2 px-3 py-2 rounded-lg w-16 sm:w-32 h-10">
+        <span className="text-sm font-medium opacity-0 hidden sm:inline">Loading...</span>
       </div>
     );
   }
@@ -49,8 +49,8 @@ export default function ThemeSwitcher() {
         aria-label="Change theme"
       >
         {getModeIcon()}
-        <span className="text-sm font-medium">Theme</span>
-        <span className="text-sm font-medium text-muted-foreground">· {currentTheme.name}</span>
+        <span className="text-sm font-medium hidden sm:inline">Theme</span>
+        <span className="text-sm font-medium text-muted-foreground hidden md:inline">· {currentTheme.name}</span>
         <ChevronDownIcon className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
