@@ -3,7 +3,38 @@
 import React from "react";
 import { HeartPiratesJollyRoger } from "@/components/icons/HeartPiratesJollyRoger";
 
+// Custom hook for responsive icon count
+const useResponsiveIconCount = () => {
+  const [iconCount, setIconCount] = React.useState(150);
+
+  React.useEffect(() => {
+    const updateIconCount = () => {
+      const width = window.innerWidth;
+      if (width < 480) {
+        setIconCount(10); // Mobile phones
+      } else if (width < 768) {
+        setIconCount(50); // Small tablets
+      } else if (width < 1024) {
+        setIconCount(100); // Tablets
+      } else {
+        setIconCount(150); // Laptops/Desktops
+      }
+    };
+
+    // Set initial count
+    updateIconCount();
+
+    // Update on resize
+    window.addEventListener('resize', updateIconCount);
+    return () => window.removeEventListener('resize', updateIconCount);
+  }, []);
+
+  return iconCount;
+};
+
 export const TrafalgarLawBackground: React.FC = () => {
+  const iconCount = useResponsiveIconCount();
+
   // Generate random positions and sizes for the jolly rogers with collision detection
   const jollyRogers = React.useMemo(() => {
     const items: Array<{
@@ -14,7 +45,7 @@ export const TrafalgarLawBackground: React.FC = () => {
       opacity: number;
       rotation: number;
     }> = [];
-    const count = 150; // Number of jolly roger icons
+    
     const minDistance = 8; // Minimum distance between icons (in % of viewport)
     const maxAttempts = 100; // Maximum attempts to place an icon
     
@@ -35,7 +66,7 @@ export const TrafalgarLawBackground: React.FC = () => {
       return distance < minSeparation;
     };
     
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < iconCount; i++) {
       let placed = false;
       let attempts = 0;
       
@@ -71,7 +102,7 @@ export const TrafalgarLawBackground: React.FC = () => {
     }
     
     return items;
-  }, []);
+  }, [iconCount]); // Regenerate when icon count changes
 
   return (
     <>
