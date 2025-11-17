@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
                 hover:bg-primary/20 hover:scale-105
                 ${activeSection === item.id 
                   ? 'bg-primary text-primary-foreground shadow-md' 
-                  : 'text-card-foreground hover:text-primary'
+                  : 'text-foreground hover:text-primary'
                 }
               `}
               aria-label={`Navigate to ${item.label} section`}
