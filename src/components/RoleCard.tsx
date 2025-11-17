@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@/components/ui/Card';
 
-interface RoleProps {
+interface RoleCardProps {
   title: string;
   description: string;
   contributions: string[];
@@ -11,7 +11,7 @@ interface RoleProps {
   techStack: string[];
 }
 
-const Role: React.FC<RoleProps> = ({
+const RoleCard: React.FC<RoleCardProps> = ({
   title,
   description,
   contributions,
@@ -21,10 +21,10 @@ const Role: React.FC<RoleProps> = ({
   techStack
 }) => {
   const header = (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col items-start gap-1">
       <h3 className="text-xl font-semibold text-card-foreground">{title}</h3>
       <span className="text-lg font-medium text-card-foreground opacity-90">{companyName}</span>
-      <span className="text-sm text-card-foreground opacity-75">{startDate} - {endDate}</span>
+      <span className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">{startDate} - {endDate}</span>
     </div>
   );
 
@@ -69,4 +69,4 @@ const Role: React.FC<RoleProps> = ({
   );
 };
 
-export default Role;
+export default RoleCard;

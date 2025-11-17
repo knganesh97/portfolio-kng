@@ -11,21 +11,21 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ header, body, footer, className = '', style }) => {
     return (
         <div
-            className={`rounded-2xl border shadow-md bg-card text-card-foreground transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 card-border ${className}`}
+            className={`rounded-2xl border shadow-md bg-card text-card-foreground transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 card-border flex flex-col ${className}`}
             style={style}
         >
             {header && (
-                <div className="px-6 pt-6 pb-2 flex items-center gap-3 border-b card-inner-border">
+                <div className="px-6 pt-6 pb-4 flex items-start gap-3 border-b card-inner-border flex-shrink-0 bg-card brightness-[0.98] rounded-t-2xl">
                     {header}
                 </div>
             )}
             {body && (
-                <div className="px-6 py-4">
+                <div className="px-6 py-4 flex-grow bg-card">
                     {body}
                 </div>
             )}
             {footer && (
-                <div className="px-6 pb-4 pt-2 flex items-center justify-between border-t card-inner-border">
+                <div className="px-6 pb-4 pt-2 flex items-center justify-between border-t card-inner-border flex-shrink-0 bg-card brightness-[0.98] rounded-b-2xl">
                     {footer}
                 </div>
             )}

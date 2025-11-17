@@ -1,4 +1,10 @@
-import { Components } from 'react-markdown';
+export const NAVIGATION_ITEMS = [
+  { id: 'projects', label: 'Projects'},
+  { id: 'experience', label: 'Experience' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'education', label: 'Education' },
+  { id: 'achievements', label: 'Achievements' }
+];
 
 export const workExperience = [
   {
@@ -94,112 +100,150 @@ export const githubRepositories = [
   },
   {
     owner: "knganesh97",
+    repo: "dookan-assignment",
+    description: "Assignment project for Dookan",
+  },
+  {
+    owner: "knganesh97",
     repo: "portfolio-kng",
     description: "Personal portfolio website",
   },
   // Add more repositories as needed
 ];
 
-// Define proper component types that match ReactMarkdown's expectations
-export const markdownComponents: Components = {
-  h1: ({ children }) => (
-    <h1 className="text-3xl font-bold text-foreground mb-6 border-b border-border pb-2">
-      {children}
-    </h1>
-  ),
-  h2: ({ children }) => (
-    <h2 className="text-2xl font-semibold text-foreground mb-4 mt-8">
-      {children}
-    </h2>
-  ),
-  h3: ({ children }) => (
-    <h3 className="text-xl font-semibold text-foreground mb-3 mt-6">
-      {children}
-    </h3>
-  ),
-  h4: ({ children }) => (
-    <h4 className="text-lg font-medium text-foreground mb-2 mt-4">
-      {children}
-    </h4>
-  ),
-  p: ({ children }) => (
-    <p className="text-muted-foreground mb-4 leading-relaxed">
-      {children}
-    </p>
-  ),
-  a: ({ href, children }) => (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-primary hover:text-primary/80 underline transition-colors"
-    >
-      {children}
-    </a>
-  ),
-  ul: ({ children }) => (
-    <ul className="list-disc list-inside mb-4 space-y-1 text-muted-foreground">
-      {children}
-    </ul>
-  ),
-  ol: ({ children }) => (
-    <ol className="list-decimal list-inside mb-4 space-y-1 text-muted-foreground">
-      {children}
-    </ol>
-  ),
-  li: ({ children }) => (
-    <li className="text-muted-foreground">{children}</li>
-  ),
-  blockquote: ({ children }) => (
-    <blockquote className="border-l-4 border-border pl-4 italic text-muted-foreground mb-4 bg-muted/30 py-2">
-      {children}
-    </blockquote>
-  ),
-  code: ({ children }) => (
-    <code className="bg-muted text-foreground px-1 py-0.5 rounded font-mono text-sm">
-      {children}
-    </code>
-  ),
-  pre: ({ children }) => (
-    <pre className="bg-muted text-foreground p-4 rounded-lg overflow-x-auto text-sm font-mono mb-4">
-      {children}
-    </pre>
-  ),
-  img: ({ src, alt }) => {
-    // Ensure src is a valid string
-    if (!src || typeof src !== 'string') return null;
+// Skills Data
+export interface SkillCategory {
+  category: string;
+  skills: string[];
+}
 
-    // GitHub README images are always external, so use regular img
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={src}
-        alt={alt || ""}
-        className="max-w-full h-auto rounded-lg shadow-sm mb-4"
-        loading="lazy"
-        onError={(e) => {
-          // Hide broken images gracefully
-          e.currentTarget.style.display = 'none';
-        }}
-      />
-    );
+export const skillCategories: SkillCategory[] = [
+  {
+    category: "Programming Languages",
+    skills: ["Golang", "Python", "Java", "Spring Boot", "Javascript"]
   },
-  table: ({ children }) => (
-    <div className="overflow-x-auto mb-4">
-      <table className="min-w-full border-collapse border border-border">
-        {children}
-      </table>
-    </div>
-  ),
-  th: ({ children }) => (
-    <th className="border border-border bg-muted px-4 py-2 text-left font-semibold text-foreground">
-      {children}
-    </th>
-  ),
-  td: ({ children }) => (
-    <td className="border border-border px-4 py-2 text-muted-foreground">
-      {children}
-    </td>
-  ),
-  hr: () => <hr className="border-border mb-6 mt-6" />,
-};
+  {
+    category: "Frontend Technologies",
+    skills: ["React", "Node.js", "Typescript", "CSS", "HTML"]
+  },
+  {
+    category: "Database Technologies",
+    skills: ["Postgres", "MongoDB", "DynamoDB", "Firestore"]
+  },
+  {
+    category: "Cloud & Infrastructure",
+    skills: ["AWS", "Firebase", "micro services architecture"]
+  },
+  {
+    category: "Core Skills",
+    skills: ["Problem solving", "data structures", "algorithms"]
+  }
+];
+
+// Education Data
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  grade?: string;
+  description?: string;
+  highlights?: string[];
+}
+
+export const educationData: EducationItem[] = [
+  {
+    degree: "Integrated Dual Degree: M.Sc.(Hons.) Mathematics + B.E.(Hons.) Civil Engineering",
+    institution: "BITS Pilani - Hyderabad Campus",
+    location: "Hyderabad, India",
+    startDate: "2014",
+    endDate: "2019",
+    description: "Integrated dual degree program combining advanced mathematics and civil engineering.",
+    highlights: [
+      "Thesis on Differential Equations for Fluid Flow in Pipes",
+      "Design Project on Pipe Network Optimisation through Water Cycle Algorithm",
+      "Study Project on Application of Differential Equations in Structural Engineering"
+    ]
+  }
+];
+
+// Achievements Data
+export interface Achievement {
+  title: string;
+  description: string;
+  category: 'Professional' | 'Technical' | 'Academic' | 'Leadership';
+  date?: string;
+  metrics?: string;
+}
+
+export const achievements: Achievement[] = [
+  {
+    title: "Customer Obsession Accolade",
+    description: "Received 'Customer Obsession' accolade at Amazon for exceptional customer-focused approach.",
+    category: "Professional",
+    date: "2022-2023",
+    metrics: "Recognition award"
+  },
+  {
+    title: "10 Stars Recognition",
+    description: "Received 10 stars for task completions at HumAIn, demonstrating consistent high-quality delivery.",
+    category: "Professional",
+    date: "2024-2025",
+    metrics: "10 stars"
+  },
+  {
+    title: "150% Productivity Boost",
+    description: "Developed new features for internal utility website that boosted cross-team productivity significantly.",
+    category: "Technical",
+    date: "2022",
+    metrics: "150% increase"
+  },
+  {
+    title: "Platform Performance Enhancement",
+    description: "Built backend APIs using Go, improving platform performance by 25% at ChessBase India.",
+    category: "Technical",
+    date: "2020-2022",
+    metrics: "25% improvement"
+  },
+  {
+    title: "Clean Code Delivery",
+    description: "Contributed 48 clean pull requests in a 6-member team, delivering on tight deadlines.",
+    category: "Professional",
+    date: "2024-2025",
+    metrics: "48 PRs"
+  }
+];
+
+// Social Links Data
+export interface SocialLink {
+  name: string;
+  url: string;
+  description: string;
+  icon: React.ReactNode;
+  category: 'Professional' | 'Social' | 'Portfolio' | 'Contact';
+}
+
+export const socialLinks: SocialLink[] = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/ganesh-kantimahanthi-297385154/",
+    description: "Connect with me professionally",
+    icon: null, // Will be set in component
+    category: "Professional"
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/knganesh97",
+    description: "Check out my open source projects and contributions",
+    icon: null, // Will be set in component
+    category: "Professional"
+  },
+  {
+    name: "Email",
+    url: "mailto:knganesh97@gmail.com",
+    description: "Send me an email for collaborations",
+    icon: null, // Will be set in component
+    category: "Contact"
+  }
+];
