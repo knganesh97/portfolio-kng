@@ -4,7 +4,7 @@
  * Helper functions for creating and managing themes.
  */
 
-import type { Theme, ThemeDefinition, ThemeColors, ColorPalette } from './types';
+import type { Theme, ThemeDefinition, ColorPalette } from './types';
 
 /**
  * Creates a complete theme object from a theme definition
