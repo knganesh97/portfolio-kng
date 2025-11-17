@@ -59,16 +59,72 @@ export const markdownComponents: Components = {
       {children}
     </blockquote>
   ),
-  code: ({ children }) => (
-    <code className="bg-muted text-foreground px-1 py-0.5 rounded font-mono text-sm">
-      {children}
-    </code>
-  ),
-  pre: ({ children }) => (
-    <pre className="bg-muted text-foreground p-4 rounded-lg overflow-x-auto text-sm font-mono mb-4">
-      {children}
-    </pre>
-  ),
+  code: ({ children }) => {
+    // Handle tree structure characters in inline code
+    const handleTreeStructure = (content: string) => {
+      return content
+        .replace(/â\s*ââ\s*/g, '├── ')
+        .replace(/â\s*ââ\s*/g, '│   ')
+        .replace(/â\s*ââ\s*/g, '└── ')
+        .replace(/â/g, '│')
+        .replace(/ââ/g, '├─')
+        .replace(/ââ/g, '└─');
+    };
+
+    // Extract and fix text content
+    const getTextContent = (node: any): string => {
+      if (typeof node === 'string') return handleTreeStructure(node);
+      if (Array.isArray(node)) return node.map(getTextContent).join('');
+      if (node?.props?.children) return getTextContent(node.props.children);
+      return '';
+    };
+
+    const content = getTextContent(children);
+
+    return (
+      <code className="bg-muted text-foreground px-1 py-0.5 rounded text-sm" style={{ 
+        fontFamily: '"SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", Menlo, Consolas, monospace',
+        fontFeatureSettings: '"liga" 0'
+      }}>
+        {content || children}
+      </code>
+    );
+  },
+  pre: ({ children }) => {
+    // Handle potential tree structure content
+    const handleTreeStructure = (content: string) => {
+      // Replace common broken UTF-8 sequences with proper box-drawing characters
+      return content
+        .replace(/â\s*ââ\s*/g, '├── ')
+        .replace(/â\s*ââ\s*/g, '│   ')
+        .replace(/â\s*ââ\s*/g, '└── ')
+        .replace(/â/g, '│')
+        .replace(/ââ/g, '├─')
+        .replace(/ââ/g, '└─');
+    };
+
+    // Extract text content and fix encoding issues
+    const getTextContent = (node: any): string => {
+      if (typeof node === 'string') return handleTreeStructure(node);
+      if (Array.isArray(node)) return node.map(getTextContent).join('');
+      if (node?.props?.children) return getTextContent(node.props.children);
+      return '';
+    };
+
+    const content = getTextContent(children);
+    
+    return (
+      <pre className="bg-muted text-foreground p-4 rounded-lg overflow-x-auto text-sm mb-4" style={{ 
+        fontFamily: '"SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", Menlo, Consolas, monospace',
+        fontFeatureSettings: '"liga" 0',
+        whiteSpace: 'pre',
+        wordWrap: 'normal',
+        lineHeight: '1.5'
+      }}>
+        {content || children}
+      </pre>
+    );
+  },
   img: ({ src, alt }) => {
     // Ensure src is a valid string
     if (!src || typeof src !== 'string') return null;
