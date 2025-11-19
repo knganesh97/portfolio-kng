@@ -61,9 +61,9 @@ export const tloasTheme: ThemeDefinition = {
     buttonPrimaryBg: '#b85a3e', // primary
     buttonPrimaryFg: '#ffffff', // primary-foreground
     buttonPrimaryHover: '#b85a3e', // primary (with opacity applied in CSS)
-    buttonSecondaryBg: '#cbd7c7', // muted
-    buttonSecondaryFg: '#3a5437', // muted-foreground
-    buttonSecondaryHover: '#cbd7c7', // muted (with opacity applied in CSS)
+    buttonSecondaryBg: '#9dbf96', // secondary
+    buttonSecondaryFg: '#000000', // secondary-foreground
+    buttonSecondaryHover: '#9dbf96', // secondary (with opacity applied in CSS)
     buttonSecondaryBorder: '#a8947f', // border
     buttonGhostBg: 'transparent', // transparent
     buttonGhostFg: '#000000', // foreground
