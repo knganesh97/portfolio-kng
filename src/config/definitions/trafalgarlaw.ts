@@ -64,8 +64,8 @@ export const trafalgarLawTheme: ThemeDefinition = {
     // Semantic colors - Black background with yellow accents
     background: '#0a0a0a',
     foreground: '#ffd700',
-    card: '#1f1f1f',
-    cardForeground: '#ffd700',
+    card: '#ffea52',
+    cardForeground: '#000000',
     popover: '#1f1f1f',
     popoverForeground: '#ffd700',
     primary: '#ffd700',
