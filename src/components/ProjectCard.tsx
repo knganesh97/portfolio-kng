@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ repo, owner, description, onV
       }
       footer={
         <Button
-          variant="primary"
+          variant="secondary"
           className="w-full"
           onClick={onViewDetails}
         >

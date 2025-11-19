@@ -57,6 +57,37 @@ export const trafalgarLawTheme: ThemeDefinition = {
     cardContainerForeground: '#000000',
     cardContainerBorder: '#ffd700',
     
+    // Button component colors (mapped to current semantic colors)
+    buttonPrimaryBg: '#000000', // primary
+    buttonPrimaryFg: '#ffd700', // primary-foreground
+    buttonPrimaryHover: '#000000', // primary (with opacity applied in CSS)
+    buttonSecondaryBg: '#ffea52', // muted
+    buttonSecondaryFg: '#424242', // muted-foreground
+    buttonSecondaryHover: '#ffea52', // muted (with opacity applied in CSS)
+    buttonSecondaryBorder: '#ffd700', // border
+    buttonGhostBg: 'transparent', // transparent
+    buttonGhostFg: '#000000', // foreground
+    buttonGhostHover: '#fff380', // accent
+    buttonGhostHoverFg: '#000000', // accent-foreground
+    buttonRing: '#ffd700', // ring
+    
+    // Card component colors (mapped to current semantic colors)
+    cardBg: '#ffea52', // card
+    cardFg: '#000000', // card-foreground
+    cardHeaderBg: '#ffea52', // card (with brightness filter in CSS)
+    cardFooterBg: '#ffea52', // card (with brightness filter in CSS)
+    cardInnerBorder: 'rgba(168, 148, 127, 0.15)', // current card-inner-border
+    
+    // ThemeModeButton component colors (mapped to current semantic colors)
+    themeModeButtonActiveBg: '#000000', // primary
+    themeModeButtonActiveFg: '#ffd700', // primary-foreground
+    themeModeButtonHoverBg: '#ffea52', // secondary
+    
+    // ThemeOptionButton component colors (mapped to current semantic colors)
+    themeOptionButtonActiveBg: '#000000', // primary
+    themeOptionButtonActiveFg: '#ffd700', // primary-foreground
+    themeOptionButtonHoverBg: '#ffea52', // secondary
+    
     shimmerGradient: 'linear-gradient(90deg, #000000 0%, #424242 20%, #8a8a8a 40%, #424242 60%, #000000 80%, #1f1f1f 100%)',
   },
   
@@ -64,8 +95,8 @@ export const trafalgarLawTheme: ThemeDefinition = {
     // Semantic colors - Black background with yellow accents
     background: '#0a0a0a',
     foreground: '#ffd700',
-    card: '#ffea52',
-    cardForeground: '#000000',
+    card: '#1f1f1f',
+    cardForeground: '#ffd700',
     popover: '#1f1f1f',
     popoverForeground: '#ffd700',
     primary: '#ffd700',
@@ -98,6 +129,37 @@ export const trafalgarLawTheme: ThemeDefinition = {
     cardContainerBg: '#141414',
     cardContainerForeground: '#ffd700',
     cardContainerBorder: '#2e2e2e',
+    
+    // Button component colors (mapped to current semantic colors)
+    buttonPrimaryBg: '#ffd700', // primary
+    buttonPrimaryFg: '#000000', // primary-foreground
+    buttonPrimaryHover: '#ffd700', // primary (with opacity applied in CSS)
+    buttonSecondaryBg: '#1f1f1f', // muted
+    buttonSecondaryFg: '#c7a500', // muted-foreground
+    buttonSecondaryHover: '#1f1f1f', // muted (with opacity applied in CSS)
+    buttonSecondaryBorder: '#424242', // border
+    buttonGhostBg: 'transparent', // transparent
+    buttonGhostFg: '#ffd700', // foreground
+    buttonGhostHover: '#fff380', // accent
+    buttonGhostHoverFg: '#000000', // accent-foreground
+    buttonRing: '#ffd700', // ring
+    
+    // Card component colors (mapped to current semantic colors)
+    cardBg: '#1f1f1f', // card
+    cardFg: '#ffd700', // card-foreground
+    cardHeaderBg: '#1f1f1f', // card (with brightness filter in CSS)
+    cardFooterBg: '#1f1f1f', // card (with brightness filter in CSS)
+    cardInnerBorder: 'rgba(140, 107, 95, 0.15)', // current dark card-inner-border
+    
+    // ThemeModeButton component colors (mapped to current semantic colors)
+    themeModeButtonActiveBg: '#ffd700', // primary
+    themeModeButtonActiveFg: '#000000', // primary-foreground
+    themeModeButtonHoverBg: '#2e2e2e', // secondary
+    
+    // ThemeOptionButton component colors (mapped to current semantic colors)
+    themeOptionButtonActiveBg: '#ffd700', // primary
+    themeOptionButtonActiveFg: '#000000', // primary-foreground
+    themeOptionButtonHoverBg: '#2e2e2e', // secondary
     
     shimmerGradient: 'linear-gradient(90deg, #ffd700 0%, #fff380 20%, #000000 40%, #ffd700 60%, #fff9ad 80%, #000000 100%)',
   },

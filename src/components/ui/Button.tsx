@@ -8,11 +8,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<string, string> = {
     primary:
-        "bg-secondary text-secondary-foreground hover:bg-secondary/90 focus:ring-2 focus:ring-ring shadow-md",
+        "btn-primary-bg btn-primary-fg hover:btn-primary-hover/90 focus:ring-2 focus:ring-ring shadow-md",
     secondary:
-        "bg-muted text-muted-foreground hover:bg-muted/80 border-2 border-border focus:ring-2 focus:ring-ring",
+        "btn-secondary-bg btn-secondary-fg hover:btn-secondary-hover/80 border-2 btn-secondary-border focus:ring-2 focus:ring-ring",
     ghost:
-        "bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground focus:ring-2 focus:ring-ring",
+        "btn-ghost-bg btn-ghost-fg hover:btn-ghost-hover hover:btn-ghost-hover-fg focus:ring-2 focus:ring-ring",
 };
 
 const Button: React.FC<ButtonProps> = ({

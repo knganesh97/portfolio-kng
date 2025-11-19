@@ -57,6 +57,37 @@ export const defaultTheme: ThemeDefinition = {
     cardContainerForeground: '#000000',
     cardContainerBorder: '#e5e5e5',
     
+    // Button component colors (mapped to current semantic colors)
+    buttonPrimaryBg: '#000000', // primary
+    buttonPrimaryFg: '#ffffff', // primary-foreground
+    buttonPrimaryHover: '#000000', // primary (with opacity applied in CSS)
+    buttonSecondaryBg: '#f5f5f5', // muted
+    buttonSecondaryFg: '#737373', // muted-foreground
+    buttonSecondaryHover: '#f5f5f5', // muted (with opacity applied in CSS)
+    buttonSecondaryBorder: '#e5e5e5', // border
+    buttonGhostBg: 'transparent', // transparent
+    buttonGhostFg: '#000000', // foreground
+    buttonGhostHover: '#262626', // accent
+    buttonGhostHoverFg: '#ffffff', // accent-foreground
+    buttonRing: '#000000', // ring
+    
+    // Card component colors (mapped to current semantic colors)
+    cardBg: '#f5f5f5', // card
+    cardFg: '#000000', // card-foreground
+    cardHeaderBg: '#f5f5f5', // card (with brightness filter in CSS)
+    cardFooterBg: '#f5f5f5', // card (with brightness filter in CSS)
+    cardInnerBorder: 'rgba(168, 148, 127, 0.15)', // current card-inner-border
+    
+    // ThemeModeButton component colors (mapped to current semantic colors)
+    themeModeButtonActiveBg: '#000000', // primary
+    themeModeButtonActiveFg: '#ffffff', // primary-foreground
+    themeModeButtonHoverBg: '#f5f5f5', // secondary
+    
+    // ThemeOptionButton component colors (mapped to current semantic colors)
+    themeOptionButtonActiveBg: '#000000', // primary
+    themeOptionButtonActiveFg: '#ffffff', // primary-foreground
+    themeOptionButtonHoverBg: '#f5f5f5', // secondary
+    
     shimmerGradient: 'linear-gradient(90deg, #000000 0%, #737373 20%, #a3a3a3 40%, #737373 60%, #000000 80%, #262626 100%)',
   },
   
@@ -98,6 +129,37 @@ export const defaultTheme: ThemeDefinition = {
     cardContainerBg: '#171717',
     cardContainerForeground: '#ffffff',
     cardContainerBorder: '#262626',
+    
+    // Button component colors (mapped to current semantic colors)
+    buttonPrimaryBg: '#ffffff', // primary
+    buttonPrimaryFg: '#000000', // primary-foreground
+    buttonPrimaryHover: '#ffffff', // primary (with opacity applied in CSS)
+    buttonSecondaryBg: '#262626', // muted
+    buttonSecondaryFg: '#a3a3a3', // muted-foreground
+    buttonSecondaryHover: '#262626', // muted (with opacity applied in CSS)
+    buttonSecondaryBorder: '#262626', // border
+    buttonGhostBg: 'transparent', // transparent
+    buttonGhostFg: '#ffffff', // foreground
+    buttonGhostHover: '#f5f5f5', // accent
+    buttonGhostHoverFg: '#000000', // accent-foreground
+    buttonRing: '#ffffff', // ring
+    
+    // Card component colors (mapped to current semantic colors)
+    cardBg: '#171717', // card
+    cardFg: '#ffffff', // card-foreground
+    cardHeaderBg: '#171717', // card (with brightness filter in CSS)
+    cardFooterBg: '#171717', // card (with brightness filter in CSS)
+    cardInnerBorder: 'rgba(140, 107, 95, 0.15)', // current dark card-inner-border
+    
+    // ThemeModeButton component colors (mapped to current semantic colors)
+    themeModeButtonActiveBg: '#ffffff', // primary
+    themeModeButtonActiveFg: '#000000', // primary-foreground
+    themeModeButtonHoverBg: '#262626', // secondary
+    
+    // ThemeOptionButton component colors (mapped to current semantic colors)
+    themeOptionButtonActiveBg: '#ffffff', // primary
+    themeOptionButtonActiveFg: '#000000', // primary-foreground
+    themeOptionButtonHoverBg: '#262626', // secondary
     
     shimmerGradient: 'linear-gradient(90deg, #ffffff 0%, #a3a3a3 20%, #737373 40%, #a3a3a3 60%, #ffffff 80%, #d4d4d4 100%)',
   },

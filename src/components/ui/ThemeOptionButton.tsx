@@ -13,8 +13,8 @@ export default function ThemeOptionButton({ isActive, onClick, name, description
       onClick={onClick}
       className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
         isActive
-          ? 'bg-primary text-primary-foreground'
-          : 'hover:bg-secondary'
+          ? 'theme-option-btn-active-bg theme-option-btn-active-fg'
+          : 'hover:theme-option-btn-hover-bg'
       }`}
       aria-label={`Switch to ${name} theme`}
     >

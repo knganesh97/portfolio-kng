@@ -48,6 +48,37 @@ export interface ThemeColors {
   cardContainerForeground: string;
   cardContainerBorder: string;
   
+  // Button component colors
+  buttonPrimaryBg: string;
+  buttonPrimaryFg: string;
+  buttonPrimaryHover: string;
+  buttonSecondaryBg: string;
+  buttonSecondaryFg: string;
+  buttonSecondaryHover: string;
+  buttonSecondaryBorder: string;
+  buttonGhostBg: string;
+  buttonGhostFg: string;
+  buttonGhostHover: string;
+  buttonGhostHoverFg: string;
+  buttonRing: string;
+  
+  // Card component colors
+  cardBg: string;
+  cardFg: string;
+  cardHeaderBg: string;
+  cardFooterBg: string;
+  cardInnerBorder: string;
+  
+  // ThemeModeButton component colors
+  themeModeButtonActiveBg: string;
+  themeModeButtonActiveFg: string;
+  themeModeButtonHoverBg: string;
+  
+  // ThemeOptionButton component colors
+  themeOptionButtonActiveBg: string;
+  themeOptionButtonActiveFg: string;
+  themeOptionButtonHoverBg: string;
+  
   shimmerGradient: string;
 }
 

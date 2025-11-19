@@ -13,8 +13,8 @@ export default function ThemeModeButton({ isActive, onClick, icon, label }: Them
       onClick={onClick}
       className={`px-3 py-2 rounded-md transition-colors flex flex-col items-center justify-center gap-1 ${
         isActive
-          ? 'bg-primary text-primary-foreground'
-          : 'hover:bg-secondary'
+          ? 'theme-mode-btn-active-bg theme-mode-btn-active-fg'
+          : 'hover:theme-mode-btn-hover-bg'
       }`}
       aria-label={`Switch to ${label} mode`}
     >
