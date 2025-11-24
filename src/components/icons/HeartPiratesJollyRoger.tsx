@@ -59,11 +59,9 @@ export const HeartPiratesJollyRoger: React.FC<HeartPiratesJollyRogerProps> = ({
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Outer circle background */}
-      <circle cx="100" cy="100" r="95" fill="#FFD700" />
 
       {/* Main circle outline */}
-      <circle cx="100" cy="100" r="60" fill="none" stroke="#2D2D2D" strokeWidth="10" />
+      <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" strokeWidth="10" />
 
       {/* Arcs with 6 gaps */}
       {arcs.map((d, i) => (
@@ -71,7 +69,7 @@ export const HeartPiratesJollyRoger: React.FC<HeartPiratesJollyRogerProps> = ({
           key={i}
           d={d} 
           fill="none" 
-          stroke="#2D2D2D" 
+          stroke="currentColor" 
           strokeWidth="10" 
           strokeLinecap="round" 
         />
@@ -85,27 +83,27 @@ export const HeartPiratesJollyRoger: React.FC<HeartPiratesJollyRogerProps> = ({
           y1={line.y1} 
           x2={line.x2} 
           y2={line.y2} 
-          stroke="#2D2D2D" 
+          stroke="currentColor" 
           strokeWidth="10" 
         />
       ))}
 
       {/* Vertical diameter line */}
-      <line x1="100" y1="40" x2="100" y2="160" stroke="#2D2D2D" strokeWidth="10" />
+      <line x1="100" y1="40" x2="100" y2="160" stroke="currentColor" strokeWidth="10" />
       
       {/* Four perpendicular line segments on the right half, evenly distributed */}
       {/* y positions: 64, 88, 112, 136 (24 units apart) */}
-      <line x1="100" y1="64" x2="151" y2="64" stroke="#2D2D2D" strokeWidth="10" />
-      <line x1="100" y1="88" x2="155" y2="88" stroke="#2D2D2D" strokeWidth="10" />
-      <line x1="100" y1="112" x2="155" y2="112" stroke="#2D2D2D" strokeWidth="10" />
-      <line x1="100" y1="136" x2="151" y2="136" stroke="#2D2D2D" strokeWidth="10" />
+      <line x1="100" y1="64" x2="151" y2="64" stroke="currentColor" strokeWidth="10" />
+      <line x1="100" y1="88" x2="155" y2="88" stroke="currentColor" strokeWidth="10" />
+      <line x1="100" y1="112" x2="155" y2="112" stroke="currentColor" strokeWidth="10" />
+      <line x1="100" y1="136" x2="151" y2="136" stroke="currentColor" strokeWidth="10" />
       
       {/* Small dot left of center */}
-      <circle cx="82" cy="100" r="4" fill="#2D2D2D" />
+      <circle cx="82" cy="100" r="4" fill="currentColor" />
 
       {/* Large dots left of center */}
-      <circle cx="70" cy="76" r="12" fill="#2D2D2D" />
-      <circle cx="70" cy="124" r="12" fill="#2D2D2D" />
+      <circle cx="70" cy="76" r="12" fill="currentColor" />
+      <circle cx="70" cy="124" r="12" fill="currentColor" />
     </svg>
   );
 };

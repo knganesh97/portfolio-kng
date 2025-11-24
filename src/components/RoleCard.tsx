@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '@/components/ui/Card';
+import Badge from '@/components/ui/Badge';
 
 interface RoleCardProps {
   title: string;
@@ -24,7 +25,7 @@ const RoleCard: React.FC<RoleCardProps> = ({
     <div className="flex flex-col items-start gap-1">
       <h3 className="text-xl font-semibold text-card-foreground">{title}</h3>
       <span className="text-lg font-medium text-card-foreground opacity-90">{companyName}</span>
-      <span className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">{startDate} - {endDate}</span>
+      <Badge>{startDate} - {endDate}</Badge>
     </div>
   );
 
@@ -48,12 +49,9 @@ const RoleCard: React.FC<RoleCardProps> = ({
       <h4 className="text-sm font-semibold mb-2 text-card-foreground">Technologies:</h4>
       <div className="flex flex-wrap gap-2">
         {techStack.map((tech, index) => (
-          <span 
-            key={index} 
-            className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"
-          >
+          <Badge key={index}>
             {tech}
-          </span>
+          </Badge>
         ))}
       </div>
     </div>

@@ -130,7 +130,7 @@ export const TrafalgarLawBackground: React.FC = () => {
               transform: `rotate(${jr.rotation}deg)`,
             }}
           >
-            <HeartPiratesJollyRoger size={jr.size} />
+            <HeartPiratesJollyRoger size={jr.size} className="foreground" />
           </div>
         ))}
       </div>

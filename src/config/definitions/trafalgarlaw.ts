@@ -28,7 +28,7 @@ export const trafalgarLawTheme: ThemeDefinition = {
     popoverForeground: '#000000',
     primary: '#000000',
     primaryForeground: '#ffd700',
-    secondary: '#ffea52',
+    secondary: '#ffd700',
     secondaryForeground: '#000000',
     muted: '#ffea52',
     mutedForeground: '#424242',

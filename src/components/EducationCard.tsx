@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '@/components/ui/Card';
+import Badge from '@/components/ui/Badge';
 import { EducationItem } from '@/utils/Constants';
 
 interface EducationCardProps {
@@ -11,7 +12,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ education }) => {
         <div className="flex flex-col items-start gap-1">
         <h3 className="text-xl font-semibold text-card-foreground">{education.degree}</h3>
         <span className="text-lg font-medium text-card-foreground opacity-90">{education.institution}</span>
-        <span className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">{education.startDate} - {education.endDate}</span>
+        <Badge>{education.startDate} - {education.endDate}</Badge>
         </div>
     );
 

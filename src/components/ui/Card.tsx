@@ -11,7 +11,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ header, body, footer, className = '', style }) => {
     return (
         <div
-            className={`rounded-2xl border shadow-md card-bg card-fg transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 card-border flex flex-col ${className}`}
+            className={`rounded-2xl border shadow-md card-bg card-fg transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5 card-border flex flex-col relative z-20 ${className}`}
             style={style}
         >
             {header && (
