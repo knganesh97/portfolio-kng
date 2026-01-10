@@ -4,13 +4,13 @@ A modern, customizable portfolio website built with Next.js, featuring a powerfu
 
 ## Features
 
-- 🎨 **Modular Theme System** - Easily create and switch between custom themes
-- 🌓 **Dark/Light Mode** - Full support for both color schemes
-- 📱 **Responsive Design** - Optimized for all device sizes
-- ⚡ **Next.js 15** - Built with the latest Next.js features
-- ⚛️ **React 19** - Latest React version with modern features
-- 🎯 **TypeScript** - Full type safety throughout
-- 💄 **Tailwind CSS** - Utility-first CSS framework
+- **Modular Theme System** - Easily create and switch between custom themes
+- **Dark/Light Mode** - Full support for both color schemes
+- **Responsive Design** - Optimized for all device sizes
+- **Next.js 15** - Built with the latest Next.js features
+- **React 19** - Latest React version with modern features
+- **TypeScript** - Full type safety throughout
+- **Tailwind CSS** - Utility-first CSS framework
 
 ## Getting Started
 
